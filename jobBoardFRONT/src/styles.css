@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "assets/css/bootstrap.min.css";  */
 @import '~bootstrap/dist/css/bootstrap.css';
+/* @import 'assets/fonts/themify-icons.css'; */
 @import "assets/css/main.css";
 @import "assets/css/responsive.css";
 @import "assets/css/colors/red.css";

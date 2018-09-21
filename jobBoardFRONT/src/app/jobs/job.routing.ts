@@ -4,9 +4,11 @@ import { JobsComponent } from "./jobhome/jobs.component";
 import { JobpostComponent } from "./jobpost/jobpost.component";
 
 const routes: Routes = [
-    {path: '', redirectTo:'jobindex', pathMatch:'full'},
+    {path: '', children:{
+        
+    }},
     {path: 'jobindex', component: JobsComponent},
-    {path: 'jobpost', component: JobpostComponent},
+    {path: 'postjob', component: JobpostComponent},
 ];
 
 @NgModule({

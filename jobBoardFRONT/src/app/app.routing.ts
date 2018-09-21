@@ -1,10 +1,10 @@
 import { Routes, RouterModule } from "@angular/router";
-import { HomepageComponent } from "./homepage/homepage.component";
+import { HomepageComponent } from "./mainPages/homepage/homepage.component";
 import { NgModule } from "@angular/core";
-import { JobsComponent } from "./jobs/jobs.component";
-import { ContactusComponent } from "./contactus/contactus.component";
-import { AboutusComponent } from "./aboutus/aboutus.component";
-import { LoginComponent } from "./login/login.component";
+import { JobsComponent } from "./mainPages/jobs/jobhome/jobs.component";
+import { ContactusComponent } from "./mainPages/contactus/contactus.component";
+import { AboutusComponent } from "./mainPages/aboutus/aboutus.component";
+import { LoginComponent } from "./mainPages/login/login.component";
 
 const routes: Routes = [
     {path: '', redirectTo:'/index', pathMatch:'full'},
@@ -13,7 +13,8 @@ const routes: Routes = [
     {path: 'contactus', component: ContactusComponent},
     {path: 'aboutus', component: AboutusComponent},
     {path: 'login', component: LoginComponent},
-
+    {path: 'job',loadChildren:
+},
 
 ];
 

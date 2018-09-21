@@ -8,9 +8,6 @@ import { FooterComponent } from './shared/footer.component';
 import { AppRouterMoudle } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { JobsComponent } from './mainPages/jobs/jobhome/jobs.component';
-import { ContactusComponent } from './mainPages/contactus/contactus.component';
-import { AboutusComponent } from './mainPages/aboutus/aboutus.component';
-import { LoginComponent } from './mainPages/login/login.component';
 
 
 

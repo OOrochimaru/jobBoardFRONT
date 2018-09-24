@@ -21,25 +21,25 @@
             <!-- Start Navigation List -->
             <ul class="nav navbar-nav">
               <li>
-                <a class="active" routerLink="index" routerLinkActive="active">
+                <a class="active" routerLink="/index" routerLinkActive="active">
                   Home
                   <i class="fa fa-angle"></i>
                 </a>
               </li>
               <li>
-                <a routerLink="job" routerLinkActive='active'>
+                <a routerLink="/job" routerLinkActive='active'>
                   Jobs
                   <i class="fa fa-angle"></i>
                 </a>
               </li>
               <li>
-                <a  routerLink="aboutus" routerLinkActive='active' >
+                <a  routerLink="/aboutus" routerLinkActive='active' >
                   About Us
                   <i class="fa fa-angle"></i>
                 </a>
               </li>
               <li>
-                <a  routerLink="contactus" routerLinkActive='active' >
+                <a  routerLink="/contactus" routerLinkActive='active' >
                   Contact Us
                   <i class="fa fa-angle"></i>
                 </a>
@@ -47,11 +47,12 @@
             </ul>
             <ul class="nav navbar-nav navbar-right float-right">
               <li class="left">
-                <a [routerLink]="['job/']">
+                <a routerLink="job/postjob">
                   <i class="ti-pencil-alt"></i> Post A Job</a>
               </li>
               <li class="right">
-                <a routerLink='login' routerLinkActive='active'>
+                <!-- <a [routerLink]="['/login']" routerLinkActive='active'> -->
+                <a routerLink="/login" routerLinkActive='active'>
                   <i class="ti-lock"></i> Log In</a>
               </li>
             </ul>

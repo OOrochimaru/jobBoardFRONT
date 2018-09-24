@@ -11,7 +11,7 @@ const routes: Routes = [
     {path: 'index', component: HomepageComponent},
     {path: 'contactus', component: ContactusComponent},
     {path: 'aboutus', component: AboutusComponent},
-    {path: 'login', component: LoginComponent},
+    {path: 'login', loadChildren:'./login/login.module#LoginModule'},
     {path: 'job', loadChildren: './jobs/job.module#JobModule'}
 ];
 

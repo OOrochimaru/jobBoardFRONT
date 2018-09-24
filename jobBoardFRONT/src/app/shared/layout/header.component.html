@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" *appShowAuthed='false'>
   <!-- Start intro section -->
   <section id="intro" class="section-intro">
     <div class="logo-menu">
@@ -47,7 +47,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right float-right">
               <li class="left">
-                <a [routerLink]="['job']">
+                <a [routerLink]="['job/']">
                   <i class="ti-pencil-alt"></i> Post A Job</a>
               </li>
               <li class="right">
@@ -66,3 +66,116 @@
   </section>
   <!-- end intro section -->
 </div>
+
+
+
+<!-- when user is logged in  -->
+
+<div class="header" *appShowAuthed='true'>
+  <!-- Start intro section -->
+  <section id="intro" class="section-intro">
+    <div class="logo-menu">
+      <nav class="navbar navbar-default" role="navigation" data-spy="affix" data-offset-top="50">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="index.html">
+              <img src="assets/img/logo.png" alt="">
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <!-- Start Navigation List -->
+            <ul class="nav navbar-nav">
+              <li>
+                <a class="active" href="index.html">
+                  Home
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li>
+                <a href="job-page.html">
+                  Jobs
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+                <li>
+                    <a href="resume.html">
+                    Resumes <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown">
+                      <li>
+                        <a href="resume.html">
+                        List All
+                        </a>
+                      </li>
+                      <li>
+                        <a href="search-resumes.html">
+                        Search Resumes
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+              <li>
+                <a href="about.html">
+                  About Us
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li>
+                <a href="contact.html">
+                  Contact Us
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right float-right">
+              <li class="left">
+                <a href="post-job.html">
+                  <i class="ti-pencil-alt"></i> Post A Job</a>
+              </li>
+              <li >
+                  <a href="resume.html">
+                  Profile <i class="fa fa-angle-down" style="margin:0px 0px; "></i>
+                  </a> 
+                  <ul class="dropdown">
+                    <li>
+                      <a href="resume.html">
+                      My Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a href="search-resumes.html">
+                      My Jobs
+                      </a>
+                    </li>
+                    <li>
+                      <a href="search-resumes.html">
+                      My Shortlist
+                      </a>
+                    </li>
+                    <li>
+                      <a href="search-resumes.html">
+                      $Payment
+                      </a>
+                    </li>
+                    <li>
+                      <a href="search-resumes.html">
+                      Logout
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+            
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Header Section End -->

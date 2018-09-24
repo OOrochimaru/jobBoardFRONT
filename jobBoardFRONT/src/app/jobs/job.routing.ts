@@ -4,7 +4,7 @@ import { JobsComponent } from "./jobhome/jobs.component";
 import { JobpostComponent } from "./jobpost/jobpost.component";
 
 const routes: Routes = [
-    {path: 'job',
+    {path: '',
     children: [
         {path: 'jobindex', component: JobsComponent},
         {path: 'postjob', component: JobpostComponent},

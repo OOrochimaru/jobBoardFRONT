@@ -10,6 +10,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { LoginComponent } from './login/login.component';
 import { JobModule } from './jobs/job.module'
+import { ShowAuthedDirective } from './shared/show-authed.directive'
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import { JobModule } from './jobs/job.module'
     ContactusComponent,
     AboutusComponent,
     LoginComponent,
+    ShowAuthedDirective
+
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ const routes: Routes = [
     {path: 'contactus', component: ContactusComponent},
     {path: 'aboutus', component: AboutusComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'job', component:LoginComponent}
+    {path: 'job', loadChildren: './jobs/job.module#JobModule'}
 ];
 
 @NgModule({

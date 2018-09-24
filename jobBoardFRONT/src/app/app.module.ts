@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header.component';
+import { HeaderComponent } from './shared/layout/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { FooterComponent } from './shared/footer.component';
+import { FooterComponent } from './shared/layout/footer.component';
 import { AppRouterMoudle } from './app.routing';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';

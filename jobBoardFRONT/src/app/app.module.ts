@@ -9,7 +9,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { JobModule } from './jobs/job.module';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './shared/layout/header.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { HeaderComponent } from './shared/layout/header.component';
     AppRouterMoudle,
     JobModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

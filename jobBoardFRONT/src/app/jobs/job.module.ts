@@ -1,5 +1,4 @@
 
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { JobpostComponent } from './jobpost/jobpost.component';
@@ -16,5 +15,9 @@ import { JobRouterMoudle } from './job.routing';
     JobRouterMoudle
   ],
   providers: [],
+  exports: [
+    JobpostComponent,
+    JobsComponent
+  ]
 })
 export class JobModule { }

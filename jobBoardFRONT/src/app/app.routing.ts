@@ -10,7 +10,7 @@ const routes: Routes = [
     {path: '', redirectTo:'/index', pathMatch:'full'},
     {path: 'index', component: HomepageComponent},
     {path: 'contactus', component: ContactusComponent},
-    {path: 'aboutus', component: AboutusComponent},
+    {path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusModule'},
     {path: 'login', loadChildren:'./login/login.module#LoginModule'},
     {path: 'job', loadChildren: './jobs/job.module#JobModule'}
 ];

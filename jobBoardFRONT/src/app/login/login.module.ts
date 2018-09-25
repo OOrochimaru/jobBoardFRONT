@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { JobRouterMoudle } from './login.routing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,9 +13,12 @@ import { JobRouterMoudle } from './login.routing';
   ],
   imports: [
     JobRouterMoudle,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
   ],
   providers: [],
-  exports:[
+  exports: [
     LoginComponent
   ]
 })

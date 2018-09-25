@@ -1,18 +1,18 @@
-import { Routes, RouterModule } from "@angular/router";
-import { NgModule } from "@angular/core";
-import { LoginComponent } from "./login.component";
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { LoginComponent } from './login.component';
 
 const routes: Routes = [
-        {path: '', component: LoginComponent},
+    { path: '', component: LoginComponent },
 ];
 
 @NgModule({
-    imports:[
+    imports: [
         RouterModule.forChild(routes)
     ],
-    exports:[
+    exports: [
         RouterModule
     ]
-    
+
 })
-export class JobRouterMoudle{}
+export class JobRouterMoudle { }

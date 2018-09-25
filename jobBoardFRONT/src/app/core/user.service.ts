@@ -5,16 +5,16 @@ import { ReplaySubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-   isAuthenticationSubject = new ReplaySubject<boolean>(1);
-   isAuthenticated = this.isAuthenticationSubject.asObservable();
-  constructor() { 
+  isAuthenticationSubject = new ReplaySubject<boolean>(1);
+  isAuthenticated = this.isAuthenticationSubject.asObservable();
+  constructor() {
     this.isAuthenticationSubject.next(false);
   }
 
-  setAuth(){
+  setAuth() {
     this.isAuthenticationSubject.next(true);
   }
-  purgeAuth(){
+  purgeAuth() {
     this.isAuthenticationSubject.next(false);
   }
 

@@ -6,8 +6,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AppRouterMoudle } from './app.routing';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { JobModule } from './jobs/job.module'
+import { JobModule } from './jobs/job.module';
 import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './shared/layout/header.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
     HomepageComponent,
     ContactusComponent,
     AboutusComponent,
+    HeaderComponent
 
   ],
   imports: [

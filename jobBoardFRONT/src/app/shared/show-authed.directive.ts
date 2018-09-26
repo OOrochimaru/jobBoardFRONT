@@ -31,7 +31,7 @@ import {
     }
   
     @Input() set appShowAuthed(condition: boolean) {
-      this.condition = condition;
+      this.condition = !condition;
     }
   
   }

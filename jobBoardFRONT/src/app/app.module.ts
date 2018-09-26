@@ -8,6 +8,8 @@ import { AppRouterMoudle } from './app.routing';
 import { SharedModule } from './shared/shared.module';
 // import { AboutusModule } from './aboutus/aboutus.module';
 import { ContactusModule } from './contactus/contactus.module';
+import { UsersModule } from './users/users.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { ContactusModule } from './contactus/contactus.module';
     AppRouterMoudle,
     SharedModule, // no lazyloadmodule here
     ContactusModule,
-    SharedModule
+    SharedModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

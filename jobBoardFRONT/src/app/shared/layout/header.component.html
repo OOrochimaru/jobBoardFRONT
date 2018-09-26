@@ -1,9 +1,10 @@
-<div class="header" *appShowAuthed='false'>
+<div class="header">
   <!-- Start intro section -->
   <section id="intro" class="section-intro">
     <div class="logo-menu">
       <nav class="navbar navbar-default" role="navigation" data-spy="affix" data-offset-top="50">
-        <div class="container">
+        <!-- user not logged in header -->
+        <div class="container" *appShowAuthed='true'>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -33,13 +34,13 @@
                 </a>
               </li>
               <li>
-                <a  routerLink="/aboutus" routerLinkActive='active' >
+                <a routerLink="/aboutus" routerLinkActive='active'>
                   About Us
                   <i class="fa fa-angle"></i>
                 </a>
               </li>
               <li>
-                <a  routerLink="/contactus" routerLinkActive='active' >
+                <a routerLink="/contactus" routerLinkActive='active'>
                   Contact Us
                   <i class="fa fa-angle"></i>
                 </a>
@@ -57,27 +58,10 @@
               </li>
             </ul>
           </div>
-
-
-          
         </div>
-      </nav>
-    </div>
-    <!-- Header Section End -->
-  </section>
-  <!-- end intro section -->
-</div>
 
-
-
-<!-- when user is logged in  -->
-
-<div class="header" *appShowAuthed='true'>
-  <!-- Start intro section -->
-  <section id="intro" class="section-intro">
-    <div class="logo-menu">
-      <nav class="navbar navbar-default" role="navigation" data-spy="affix" data-offset-top="50">
-        <div class="container">
+        <!-- //user logged in  header-->
+        <div class="container" *appShowAuthed='false'>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -95,42 +79,43 @@
             <!-- Start Navigation List -->
             <ul class="nav navbar-nav">
               <li>
-                <a class="active" href="index.html">
+                <a class="active" routerLink='/homepage'>
                   Home
                   <i class="fa fa-angle"></i>
                 </a>
               </li>
               <li>
-                <a href="job-page.html">
+                <a routerLink="/job">
                   Jobs
                   <i class="fa fa-angle"></i>
                 </a>
               </li>
-                <li>
-                    <a href="resume.html">
-                    Resumes <i class="fa fa-angle-down"></i>
+              <li dropdown [dropdownToggle]="false">
+                <a routerLink="/resumes">
+                  Resumes
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown">
+                  <li>
+                    <a>
+                      List All
                     </a>
-                    <ul class="dropdown">
-                      <li>
-                        <a href="resume.html">
-                        List All
-                        </a>
-                      </li>
-                      <li>
-                        <a href="search-resumes.html">
-                        Search Resumes
-                        </a>
-                      </li>
-                    </ul>
                   </li>
+                  <li>
+                    <a>
+                      Search Resumes
+                    </a>
+                  </li>
+                </ul>
+              </li>
               <li>
-                <a href="about.html">
+                <a routerLink="/aboutus">
                   About Us
                   <i class="fa fa-angle"></i>
                 </a>
               </li>
               <li>
-                <a href="contact.html">
+                <a routerLink="/contactus">
                   Contact Us
                   <i class="fa fa-angle"></i>
                 </a>
@@ -138,45 +123,48 @@
             </ul>
             <ul class="nav navbar-nav navbar-right float-right">
               <li class="left">
-                <a href="post-job.html">
+                <a routerLink="/job/postjob">
                   <i class="ti-pencil-alt"></i> Post A Job</a>
               </li>
-              <li >
-                  <a href="resume.html">
-                  Profile <i class="fa fa-angle-down" style="margin:0px 0px; "></i>
-                  </a> 
-                  <ul class="dropdown">
-                    <li>
-                      <a href="resume.html">
+              <li dropdown [dropdownToggle]="false">
+                <a routerLink="/profile">
+                  Profile
+                  <i class="fa fa-angle-down" style="margin:0px 0px; "></i>
+                </a>
+                <ul class="dropdown">
+                  <li>
+                    <a routerLink="/profile">
                       My Profile
-                      </a>
-                    </li>
-                    <li>
-                      <a href="search-resumes.html">
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/myjobs">
                       My Jobs
-                      </a>
-                    </li>
-                    <li>
-                      <a href="search-resumes.html">
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/shortlist">
                       My Shortlist
-                      </a>
-                    </li>
-                    <li>
-                      <a href="search-resumes.html">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="search-resumes.html">
                       $Payment
-                      </a>
-                    </li>
-                    <li>
-                      <a href="search-resumes.html">
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/logout">
                       Logout
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-            
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
     <!-- Header Section End -->
+  </section>
+  <!-- end intro section -->
+</div>

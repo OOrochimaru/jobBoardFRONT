@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,11 +14,12 @@ export class RegisterComponent implements OnInit, Validators {
   // cPassword: FormControl;
   // gender: FormControl;
 
-
+  submitted: boolean;
   public myForm: FormGroup;
   emailRegex = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   passwordRegex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
-  constructor(private form: FormBuilder) {
+  numberRegex = /^[0-9]{10}$/;
+  constructor(private form: FormBuilder, private route: Router) {
 
     // this.fullname = new FormControl('', [Validators.required, Validators.minLength(5)]);
     // this.email = new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]);
@@ -39,6 +41,7 @@ export class RegisterComponent implements OnInit, Validators {
       email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
       password: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
       cPassword: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
+      number: ['', [Validators.required, Validators.pattern(this.numberRegex)]],
       gender: ['', Validators.required]
     }, { validator: this.checkPassword })
 
@@ -59,4 +62,9 @@ export class RegisterComponent implements OnInit, Validators {
       null : { 'mismatch': true };
   }
 
+  onFormSubmit(){
+    this.submitted = true;
+    this.route.navigate(['/job/user/details']);
+
+  }
 }

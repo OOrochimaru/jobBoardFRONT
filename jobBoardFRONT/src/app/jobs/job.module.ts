@@ -1,6 +1,4 @@
-
 import { NgModule } from '@angular/core';
-
 import { JobpostComponent } from './jobpost/jobpost.component';
 import { JobsComponent } from './jobhome/jobs.component';
 import { JobRouterMoudle } from './job.routing';

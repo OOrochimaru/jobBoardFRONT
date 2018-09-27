@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit, Validators {
     // this.password = new FormControl('',[Validators.required, Validators.pattern(this.emailRegex)]);
     // this.cPassword = new FormControl('');
     // this.gender = new FormControl('');
-    this.createFrom();
   }
   
   
   
   ngOnInit() {
+    this.createFrom();
     // this.route.url.subscribe(data => {
     //   //check if the last part of activatedRoute is login or register
     //   this.authType = data[data.length - 1].path;

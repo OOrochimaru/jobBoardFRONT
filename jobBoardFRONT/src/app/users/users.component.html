@@ -1,3 +1,111 @@
-<p>
-  users works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-5 col-xs-12">
+      <div class="current-image cms-e-section">
+        <img src="assets/img/profile.png" alt="" class="photo" style="margin-top: 35px; width: 250px">
+
+        <div class="upload-file upload-file3 upload-photo">
+          <a href="#">
+            <span class="wc-editable" data-pk="ws_upload_photo" data-type="text">Upload Photo</span>
+          </a>
+        </div>
+        <div class="alert alert-danger" id="errLogo" style="display: none;"></div>
+      </div>
+    </div>
+
+    <div class="col-lg-8 col-md-7 col-xs-12">
+      <form action="employer-profile.html" method="post" id="frmEmployerProfile" name="frmEmployerProfile" autocomplete="off" enctype="multipart/form-data"
+        class="form-dyna xs-4 form-profile">
+        <input type="hidden" name="profile_update" value="1" />
+        <input type="hidden" name="id" value="62" />
+        <input type="hidden" name="tab" value="contact-details" />
+        <div class="tab-content resume-tab-content company-tab-content">
+          <div role="tabpanel" class="tab-pane active cms-e-section" id="contact-details">
+            <div class="form">
+              <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_contact_name" data-type="text">Contact Name</span>:</label>
+                    <input type="text" name="contact_name" value="" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_phone" data-type="text">Phone</span>: </label>
+                    <input type="text" name="phone" value="" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_email" data-type="text">Enter your email address</span>:</label>
+                    <input type="text" name="email" value="" class="form-control required email" data-msg-required="Email is required." data-msg-email="Email is invalid."
+                      data-msg-remote="Email was registered by another." />
+                    <div class="help-block with-errors">
+                      <ul class="list-unstyled"></ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_website" data-type="text">Company Name</span>:</label>
+                    <input type="text" name="url" value="" class="form-control url" placeholder="Company Name" />
+                    <div class="help-block with-errors">
+                      <ul class="list-unstyled"></ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_contact_name" data-type="text">Address</span>:</label>
+                    <input type="text" name="contact_name" value="" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_phone" data-type="text">State</span>: </label>
+                    <input type="text" name="phone" value="" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_contact_name" data-type="text">City</span>:</label>
+                    <input type="text" name="contact_name" value="" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_phone" data-type="text">Country</span>: </label>
+                    <input type="text" name="phone" value="" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label">
+                      <span class="wc-editable" data-pk="front_label_phone" data-type="text">VAT</span>: </label>
+                    <input type="text" name="phone" value="" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <span class="wc-editable" data-pk="front_button_save" data-type="action">Save</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

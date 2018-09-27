@@ -6,9 +6,9 @@ import { JobpostComponent } from "./jobpost/jobpost.component";
 const routes: Routes = [
     {path: '',
     children: [
-        {path: 'user', loadChildren: '../users/users.module#UsersModule'},
-        {path: 'postjob', component: JobpostComponent},
         {path: 'jobindex', component: JobsComponent},
+        {path: 'postjob', component: JobpostComponent},
+        {path: 'user', loadChildren: '../users/users.module#UsersModule'},
     ]
     },
 ];

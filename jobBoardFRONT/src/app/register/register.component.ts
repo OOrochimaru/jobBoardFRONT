@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit, Validators {
   // cPassword: FormControl;
   // gender: FormControl;
 
-  submitted: boolean;
+  submitted = false;
   public myForm: FormGroup;
   emailRegex = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   passwordRegex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
@@ -27,9 +27,9 @@ export class RegisterComponent implements OnInit, Validators {
     // this.cPassword = new FormControl('');
     // this.gender = new FormControl('');
   }
-
-
-
+  
+  
+  
   ngOnInit() {
     this.createFrom();
   }
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit, Validators {
     //   gender: this.gender
     // })
   }
-  get f() {
+  private get f() {
     return this.myForm.controls;
   }
 
@@ -64,7 +64,14 @@ export class RegisterComponent implements OnInit, Validators {
 
   onFormSubmit(){
     this.submitted = true;
-    this.route.navigate(['/job/user/details']);
+    let inputted = this.myForm.controls;
+
+    console.log() 
+    if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 
+    inputted.cPassword.valid && inputted.number.valid) {
+      
+      this.route.navigate(['/user/details']);
+    }
 
   }
 }

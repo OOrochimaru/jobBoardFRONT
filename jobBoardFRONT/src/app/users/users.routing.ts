@@ -4,16 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users.component';
 
 const routes: Routes = [
-  {path: '',component: UsersComponent},
-{path: 'details',
-children:[
-]}];
+  {
+    path: '',
+    children: [
+      { path: 'details', component: UsersComponent }
+    ]
+  }];
 @NgModule({
   imports: [
-    CommonModule,
+    // CommonModule,
     RouterModule.forChild(routes)
   ],
   declarations: [],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class UsersRoutingModule { }

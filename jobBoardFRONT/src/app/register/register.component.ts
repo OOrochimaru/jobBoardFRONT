@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../core/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,13 +14,15 @@ export class RegisterComponent implements OnInit, Validators {
   // password: FormControl;
   // cPassword: FormControl;
   // gender: FormControl;
-
+  authType: String = '';
   submitted = false;
   public myForm: FormGroup;
   emailRegex = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   passwordRegex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
   numberRegex = /^[0-9]{10}$/;
-  constructor(private form: FormBuilder, private route: Router) {
+  constructor(private form: FormBuilder, private router: Router,
+    private route: ActivatedRoute,
+     private userService: UserService) {
 
     // this.fullname = new FormControl('', [Validators.required, Validators.minLength(5)]);
     // this.email = new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]);
@@ -32,6 +35,10 @@ export class RegisterComponent implements OnInit, Validators {
   
   ngOnInit() {
     this.createFrom();
+    this.route.url.subscribe(data => {
+      //check if the last part of activatedRoute is login or register
+      this.authType = data[data.length - 1].path;
+    })
   }
 
 
@@ -65,11 +72,14 @@ export class RegisterComponent implements OnInit, Validators {
   onFormSubmit(){
     this.submitted = true;
     let inputted = this.myForm.controls;
-
+    
+    
+    
     console.log() 
     if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 
-    inputted.cPassword.valid && inputted.number.valid) {
-      
+      inputted.cPassword.valid && inputted.number.valid) {
+        const userCredentials = this.myForm.value;
+      this.userService.attemptAuth(this.authType, userCredentials)
       this.route.navigate(['/user/details']);
     }
 

@@ -18,14 +18,13 @@
     </div>
 </div>
 <!-- Page Header End -->
-
 <section class="section text-center">
     <div class="container">
         <!-- login page here   -->
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="form cms-e-section">
-                    <form id="frmEmployerLogin" name="frmEmployerLogin" autocomplete="off">
+                    <form [ngForm]="myForm" novalidate>
                         <input type="hidden" name="employer_login" value="1" />
                         <div class="form-group">
                             <label class="control-label" for="email">

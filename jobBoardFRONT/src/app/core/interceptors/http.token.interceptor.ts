@@ -1,21 +1,33 @@
 import { Injectable } from '@angular/core';
-import { ReplaySubject } from 'rxjs';
-
+import { ReplaySubject, Observable } from 'rxjs';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http'; 
+import { JwtService } from '../services';
 @Injectable({
   providedIn: 'root'
 })
-export class HttptokenInterceptor {
-   isAuthenticationSubject = new ReplaySubject<boolean>(1);
-   isAuthenticated = this.isAuthenticationSubject.asObservable();
-  constructor() { 
-    this.isAuthenticationSubject.next(false);
+export class HttptokenInterceptor implements HttpInterceptor{
+
+  constructor(private jwtService: JwtService) { 
+
   }
 
-  setAuth(){
-    this.isAuthenticationSubject.next(true);
-  }
-  purgeAuth(){
-    this.isAuthenticationSubject.next(false);
-  }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
+        const headersConfig = {
+          'Content-Type' : 'application/json',
+          'Accept' : 'application/json'
+        } 
 
+        //getting token from jwtservice
+
+        const token = this.jwtService.getToken;
+
+        if (token) {
+              //replace the original headers with
+              //new authorization header
+              headersConfig['Authorization'] = `Token ${token}`;
+        }
+        //clone the request and set the new header here 
+        const request = req.clone({setHeaders: headersConfig});
+        return next.handle(request);
+  }
 }

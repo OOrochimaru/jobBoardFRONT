@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from '../core/user.service';
+import { UserService } from '../core/services/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -20,7 +20,8 @@ export class RegisterComponent implements OnInit, Validators {
   emailRegex = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   passwordRegex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
   numberRegex = /^[0-9]{10}$/;
-  constructor(private form: FormBuilder, private router: Router,
+  constructor(private form: FormBuilder,
+     private router: Router,
     private route: ActivatedRoute,
      private userService: UserService) {
 
@@ -29,16 +30,16 @@ export class RegisterComponent implements OnInit, Validators {
     // this.password = new FormControl('',[Validators.required, Validators.pattern(this.emailRegex)]);
     // this.cPassword = new FormControl('');
     // this.gender = new FormControl('');
+    this.createFrom();
   }
   
   
   
   ngOnInit() {
-    this.createFrom();
-    this.route.url.subscribe(data => {
-      //check if the last part of activatedRoute is login or register
-      this.authType = data[data.length - 1].path;
-    })
+    // this.route.url.subscribe(data => {
+    //   //check if the last part of activatedRoute is login or register
+    //   this.authType = data[data.length - 1].path;
+    // })
   }
 
 
@@ -75,13 +76,13 @@ export class RegisterComponent implements OnInit, Validators {
     
     
     
-    console.log() 
-    if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 
-      inputted.cPassword.valid && inputted.number.valid) {
-        const userCredentials = this.myForm.value;
-      this.userService.attemptAuth(this.authType, userCredentials)
-      this.route.navigate(['/user/details']);
-    }
+    // console.log() 
+    // if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 
+    //   inputted.cPassword.valid && inputted.number.valid) {
+    //     const userCredentials = this.myForm.value;
+    //   this.userService.attemptAuth(this.authType, userCredentials)
+    //   this.router.navigate(['/user/details']);
+    // }
 
   }
 }

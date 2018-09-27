@@ -24,13 +24,11 @@
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="form cms-e-section">
-                    <form [ngForm]="myForm" novalidate>
-                        <input type="hidden" name="employer_login" value="1" />
+                    <form [formGroup]="myForm" novalidate (ngSubmit)="loginFormSubmit()">
                         <div class="form-group">
                             <label class="control-label" for="email">
                                 <span class="wc-editable" data-pk="front_label_email" data-type="text">Enter your email address</span>:</label>
-                            <input type="email" name="email" id="email" class="form-control required email" maxlength="255" autocomplete="email" data-msg-required="Email is required."
-                                data-msg-email="Email is invalid." />
+                            <input type="email" formControlName="email" class="form-control required email" data-msg-email="Email is invalid." />
                             <div class="help-block with-errors">
                                 <ul class="list-unstyled"></ul>
                             </div>
@@ -39,8 +37,7 @@
                         <div class="form-group">
                             <label class="control-label" for="password">
                                 <span class="wc-editable" data-pk="front_label_password" data-type="text">Password</span>: </label>
-                            <input type="password" name="password" id="password" autocomplete="current-password" class="form-control required" data-msg-required="Password is required."
-                            />
+                            <input type="password" formControlName="password" class="form-control required"/>
                             <div class="help-block with-errors">
                                 <ul class="list-unstyled"></ul>
                             </div>

@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { ContactusModule } from './contactus/contactus.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AuthModule } from './auth/auth.module';
     SharedModule,
     ContactusModule,
     SharedModule,
+    CoreModule
     // UsersModule
   ],
   providers: [],

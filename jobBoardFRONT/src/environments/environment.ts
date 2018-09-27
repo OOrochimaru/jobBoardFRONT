@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'localhost://4200'
+  api_url: 'https://git.heroku.com/mysterious-fjord-85333.git'
 
 };
 

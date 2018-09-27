@@ -3,10 +3,9 @@ import { ReplaySubject, Observable, BehaviorSubject } from 'rxjs';
 import { ApiService } from './api.service';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { JwtService } from './jwt.service';
+import { User } from '../models/user.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
     private currentUserSubject = new BehaviorSubject<User>({} as User);
     private currentUser = this.currentUserSubject.asObservable()
@@ -14,7 +13,9 @@ export class UserService {
 
    isAuthenticationSubject = new ReplaySubject<boolean>(1);
    isAuthenticated = this.isAuthenticationSubject.asObservable();
-  constructor(private apiService: ApiService, private jwtService: JwtService) { 
+  constructor(private apiService: ApiService,
+     private jwtService: JwtService) { 
+    this.isAuthenticationSubject.next(false);
   }
 
   setAuth(user: User){
@@ -40,8 +41,6 @@ export class UserService {
             .pipe(map(data => {
               this.setAuth(data.user);
               return data;
-            }))
-
+            }));
   }
-
 }

@@ -10,11 +10,7 @@ import { filter, debounce, debounceTime, distinctUntilKeyChanged, distinctUntilC
 })
 export class RegisterComponent implements OnInit, Validators {
 
-  // fullname: FormControl;
-  // email: FormControl;
-  // password: FormControl;
-  // cPassword: FormControl;
-  // gender: FormControl;
+ 
   authType: String = '';
   submitted = false;
   public myForm: FormGroup;
@@ -51,7 +47,8 @@ export class RegisterComponent implements OnInit, Validators {
         console.log(error)
         this.emailExist = true;
       })
-    })
+    });
+    
   }
 
 
@@ -62,7 +59,8 @@ export class RegisterComponent implements OnInit, Validators {
       password: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
       cPassword: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
       number: ['', [Validators.required, Validators.pattern(this.numberRegex)]],
-      gender: ['', Validators.required]
+      gender: ['', Validators.required],
+      userType: ['', Validators.required]
     }, { validator: this.checkPassword })
 
     // this.myForm = new FormGroup({
@@ -85,7 +83,7 @@ export class RegisterComponent implements OnInit, Validators {
   onFormSubmit(){
     this.submitted = true;
     let inputted = this.myForm.controls;
-    
+    // console.log(this.myForm.get['userType'].value);
     console.log(this.myForm.value);
     
     // console.log() 

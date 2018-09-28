@@ -26,24 +26,24 @@
                 <div class="form cms-e-section">
                     <form [formGroup]="myForm" novalidate (ngSubmit)="loginFormSubmit()">
                         <div class="form-group">
-                            <label class="control-label" for="email">
-                                <span class="wc-editable" data-pk="front_label_email" data-type="text">Enter your email address</span>:</label>
-                            <input type="email" formControlName="username" class="form-control required email" data-msg-email="Email is invalid." />
-                            <div class="col-md-8 col-sm-9 col-sm-offset-3" *ngIf="f.username.errors && (f.username.dirty || f.username.touched)">
+                            <label class="control-label">Email or Full Name
+                              <span class="text-danger">*</span>
+                            </label>
+                            <div>
+                              <input type="text" class="form-control" formControlName="username" id="mem_name" placeholder="Enter your Email here" value="">
+                            </div>
+                            <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)">
                                 <p *ngIf="f.username.errors.required" class="alert-danger">Email is required</p>
                                 <p *ngIf="f.username.errors.pattern" class="alert-danger">Email has invalid pattern</p>
                             </div>
-                            <div class="help-block with-errors">
-                                <ul class="list-unstyled"></ul>
-                            </div>
-
-                        </div>
+                          </div>
+                     
 
                         <div class="form-group">
                             <label class="control-label" for="password">
                                 <span class="wc-editable" data-pk="front_label_password" data-type="text">Password</span>: </label>
                             <input type="password" formControlName="password" class="form-control required" />
-                            <div class="col-md-8 col-sm-9 col-sm-offset-3" *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+                            <div class="" *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
                                 <p *ngIf="f.password.errors.required" class="alert-danger">Password is required</p>
                             </div>
                             <div class="help-block with-errors">

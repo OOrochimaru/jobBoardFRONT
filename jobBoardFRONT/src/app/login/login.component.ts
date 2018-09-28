@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   createForm(){
     this.myForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required,Validators.pattern(this.emailRegex)]]
+      password: ['', [Validators.required]]
     })
   }
   private get f(){
@@ -33,10 +33,9 @@ export class LoginComponent implements OnInit {
 
   loginFormSubmit(){
     this.submitted = true;
-    // console.log(this.myForm.valid);
+    console.log(this.myForm.valid);
     if (this.myForm.valid) {
-      const credentials = this.myForm.get('username').value;
-      // console.log(credentials);
+      const credentials = this.myForm.value;
       this.userService.attemptAuth('login', credentials)
       .subscribe(data => {
         console.log(data);

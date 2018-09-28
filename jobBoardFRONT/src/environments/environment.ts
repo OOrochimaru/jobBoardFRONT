@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // api_url: 'localhost://4200/'
-  api_url: 'https://mysterious-fjord-85333.herokuapp.com/'
+  //api_url: 'localhost:4800/'
+   api_url: 'https://mysterious-fjord-85333.herokuapp.com/'
 
 };
 

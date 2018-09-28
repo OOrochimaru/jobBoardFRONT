@@ -7,20 +7,20 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserService {
-    private currentUserSubject = new BehaviorSubject<User>({} as User);
-    private currentUser = this.currentUserSubject.asObservable()
+  private currentUserSubject = new BehaviorSubject<User>({} as User);
+  private currentUser = this.currentUserSubject.asObservable()
     .pipe(distinctUntilChanged());
 
-   isAuthenticationSubject = new ReplaySubject<boolean>(1);
-   isAuthenticated = this.isAuthenticationSubject.asObservable();
+  isAuthenticationSubject = new ReplaySubject<boolean>(1);
+  isAuthenticated = this.isAuthenticationSubject.asObservable();
   constructor(private apiService: ApiService,
-     private jwtService: JwtService) { 
+    private jwtService: JwtService) {
     this.isAuthenticationSubject.next(false);
   }
 
-  setAuth(user: User){
+  setAuth(user: User) {
     //save jwt send by the server to the local storage
-      this.jwtService.setToken(user.token);
+    this.jwtService.setToken(user.token);
 
     //save user user data in observable
     this.currentUserSubject.next(user);
@@ -31,17 +31,26 @@ export class UserService {
 
     this.isAuthenticationSubject.next(true);
   }
-  purgeAuth(){
+  purgeAuth() {
     this.isAuthenticationSubject.next(false);
   }
-  attemptAuth(authType , userCredentials): Observable<User>{
-    const route= (authType  === 'register') ? '/register':'/login';
+  attemptAuth(authType, userCredentials): Observable<User> {
+    const route = (authType === 'register') ? '/register' : '/login';
 
-    return this.apiService.post('user', {user: userCredentials})
-    .pipe(map(data => {
-      
-      this.setAuth(data.user);
-              return data;
-            }));
+    return this.apiService.post('index'+route, { user: userCredentials })
+      .pipe(map(data => {
+
+        // this.setAuth(data.user);
+        return data;
+      }));
+  }
+
+  checkUser(email: string){
+      console.log(email);
+      return this.apiService.post('index/checkuser', {user: email}).pipe(map(data => {
+        console.log()
+        console.log(data);
+        return data;
+      }))
   }
 }

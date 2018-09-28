@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../core/services/user.service';
+import { filter, debounce, debounceTime, distinctUntilKeyChanged, distinctUntilChanged } from 'rxjs/operators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit, Validators {
   authType: String = '';
   submitted = false;
   public myForm: FormGroup;
+  emailExist = false;
   emailRegex = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   passwordRegex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
   numberRegex = /^[0-9]{10}$/;
@@ -36,6 +38,20 @@ export class RegisterComponent implements OnInit, Validators {
   
   ngOnInit() {
     this.createFrom();
+
+    this.myForm.controls['email'].valueChanges.pipe(
+      filter(email => this.myForm.controls['email'].valid),
+      debounceTime(1000), 
+      distinctUntilChanged(),
+    ).subscribe(email => {
+      this.userService.checkUser(email).subscribe((data) => {
+        console.log(data);
+        this.emailExist = false;
+      }, (error) => {
+        console.log(error)
+        this.emailExist = true;
+      })
+    })
     // this.route.url.subscribe(data => {
     //   //check if the last part of activatedRoute is login or register
     //   this.authType = data[data.length - 1].path;
@@ -74,7 +90,7 @@ export class RegisterComponent implements OnInit, Validators {
     this.submitted = true;
     let inputted = this.myForm.controls;
     
-    
+    console.log(this.myForm.value);
     
     // console.log() 
     // if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 

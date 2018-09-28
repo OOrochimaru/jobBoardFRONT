@@ -52,10 +52,6 @@ export class RegisterComponent implements OnInit, Validators {
         this.emailExist = true;
       })
     })
-    // this.route.url.subscribe(data => {
-    //   //check if the last part of activatedRoute is login or register
-    //   this.authType = data[data.length - 1].path;
-    // })
   }
 
 

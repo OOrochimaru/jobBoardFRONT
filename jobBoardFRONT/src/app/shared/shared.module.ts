@@ -8,7 +8,7 @@ import { FooterComponent } from './layout/footer.component';
 import { ShowAuthedDirective } from './show-authed.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { JobListComponent } from './job-list/job-list.component';
-
+import { ErrorListComponent } from './error-list.component';
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import { JobListComponent } from './job-list/job-list.component';
     HeaderComponent,
     FooterComponent,
     ShowAuthedDirective,
-    JobListComponent
+    JobListComponent, 
+    ErrorListComponent
   ],
   imports: [
     RouterModule,
@@ -34,7 +35,8 @@ import { JobListComponent } from './job-list/job-list.component';
     RouterModule,
     CommonModule,
     HttpClientModule,
-    JobListComponent
+    JobListComponent,
+    ErrorListComponent
   ]
 })
 export class SharedModule { }

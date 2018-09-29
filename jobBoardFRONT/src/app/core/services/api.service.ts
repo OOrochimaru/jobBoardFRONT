@@ -1,38 +1,46 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject, Observable, throwError } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { JwtService } from './jwt.service';
 import { environment } from '../../../environments/environment';
 import { catchError } from 'rxjs/operators';
 
-import { HttpHeaders } from '@angular/common/http';
+// const httpOptions = {
+//   headers: new HttpHeaders({
+//     'Content-Type':  'application/json',
+//     'Accept' : 'application/json'
+//   })
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};
+// };
 
 @Injectable()
 export class ApiService {
-  constructor(private http: HttpClient, private jwtService: JwtService) {}
+    constructor(private http: HttpClient,
+        private jwtService: JwtService) {}
+        
+        // token = this.jwtService.getToken();
 
+        // if (token) {
+        //     httpOptions['Authorization'] = `Token ${token}`;
+
+        // }
 //formatting errors
 private formattingErrors(error: any){
     return throwError(error.error);
 }
 get(path: string
-    // , params: HttpParams = new HttpParams()
+    , params: HttpParams = new HttpParams()
 ): Observable<any>{
+    console.log("printing pareams"+params);
     return this.http.get(`${environment.api_url}${path}`, {
-        // params
+        params
     })
     .pipe(catchError(this.formattingErrors));
 }
 
 post(path: string, body: Object = {}): Observable<any>{
-    // console.log(body);
-    return this.http.post(`${environment.api_url}${path}`, JSON.stringify(body),httpOptions)
+    console.log(body);
+    return this.http.post(`${environment.api_url}${path}`, JSON.stringify(body))
     .pipe(catchError(this.formattingErrors));
 }
 

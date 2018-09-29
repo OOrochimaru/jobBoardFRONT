@@ -15,7 +15,18 @@ export class UserService {
   isAuthenticated = this.isAuthenticationSubject.asObservable();
   constructor(private apiService: ApiService,
     private jwtService: JwtService) {
-    this.isAuthenticationSubject.next(false);
+  }
+
+  //populating when the app first starts 
+  populate(){
+    if (this.jwtService.getToken) {
+      this.apiService.get('index/user')
+      .subscribe(data => {
+        this.setAuth(data.user)
+      }, error => {
+        this.purgeAuth();
+      })
+    }
   }
 
   setAuth(user: User) {
@@ -27,20 +38,19 @@ export class UserService {
 
     //set isAuthentication to true
     this.isAuthenticationSubject.next(true);
-
-
-    this.isAuthenticationSubject.next(true);
   }
   purgeAuth() {
-    this.isAuthenticationSubject.next(false);
+      this.jwtService.destroyToken();
+      this.currentUserSubject.next({} as User);
+      this.isAuthenticationSubject.next(false);
   }
   attemptAuth(authType, userCredentials): Observable<User> {
     const route = (authType === 'register') ? '/register' : '/login';
-
+    console.log(route);
     return this.apiService.post('index'+route, { user: userCredentials })
       .pipe(map(data => {
-
-        // this.setAuth(data.user);
+        console.log(data);
+        this.setAuth(data.user);
         return data;
       }));
   }

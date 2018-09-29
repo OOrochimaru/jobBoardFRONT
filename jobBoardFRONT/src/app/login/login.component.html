@@ -24,6 +24,7 @@
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="form cms-e-section">
+                    <!-- <app-error-list [error]="errors"></app-error-list> -->
                     <form [formGroup]="myForm" novalidate (ngSubmit)="loginFormSubmit()">
                         <div class="form-group">
                             <label class="control-label">Email or Full Name
@@ -35,6 +36,7 @@
                             <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)">
                                 <p *ngIf="f.username.errors.required" class="alert-danger">Email is required</p>
                                 <p *ngIf="f.username.errors.pattern" class="alert-danger">Email has invalid pattern</p>
+                                <p *ngIf="errorMessage" class="alert-danger">Email has invalid pattern</p>
                             </div>
                           </div>
                      

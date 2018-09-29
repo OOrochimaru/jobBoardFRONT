@@ -126,7 +126,11 @@
                 <a routerLink="/job/postjob">
                   <i class="ti-pencil-alt"></i> Post A Job</a>
               </li>
-              <li >
+              <li class="left">
+                  <a (click)="logout()" routerLink="">
+                    <i class="ti-pencil-alt"></i> Logout</a>
+                </li>
+              <!-- <li >
                 <a routerLink="/profile">
                   Profile
                   <i class="fa fa-angle-down" style="margin:0px 0px; "></i>
@@ -158,7 +162,7 @@
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>

@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector} from '@angular/core';
 import { ReplaySubject, Observable } from 'rxjs';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http'; 
 import { JwtService } from '../services';
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class HttptokenInterceptor implements HttpInterceptor{
 
   constructor(private jwtService: JwtService) { 
@@ -19,7 +17,7 @@ export class HttptokenInterceptor implements HttpInterceptor{
 
         //getting token from jwtservice
 
-        const token = this.jwtService.getToken;
+        const token = this.jwtService.getToken();
 
         if (token) {
               //replace the original headers with
@@ -27,7 +25,7 @@ export class HttptokenInterceptor implements HttpInterceptor{
               headersConfig['Authorization'] = `Token ${token}`;
         }
         //clone the request and set the new header here 
-        const request = req.clone({setHeaders: headersConfig});
+        const request = req.clone({ setHeaders: headersConfig});
         return next.handle(request);
   }
 }

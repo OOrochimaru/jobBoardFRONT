@@ -13,11 +13,11 @@ import { HttptokenInterceptor } from './interceptors/http.token.interceptor';
     SharedModule,
   ],
   providers: [
-    // {provide: HTTP_INTERCEPTORS, 
-    //   useClass: HttptokenInterceptor, multi: true},
-    UserService,
-    JwtService,
-    ApiService,
+    {provide: HTTP_INTERCEPTORS, 
+      useClass: HttptokenInterceptor, multi: true},
+      ApiService,
+      JwtService,
+      UserService,
 ],
   exports:[
   ]

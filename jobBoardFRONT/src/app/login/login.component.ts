@@ -42,8 +42,11 @@ export class LoginComponent implements OnInit {
       // console.log(this.myForm.get('username'));
       this.userService.attemptAuth('login', credentials)
       .subscribe(data =>  {
-        console.log(data+"logged")
-        this.router.navigate(['/index'])},
+        // console.log(data.user.userid);
+
+        this.router.navigate(['/index'])
+      }
+        ,
       error =>{
         this.errors = error;
         this.submitted = false;

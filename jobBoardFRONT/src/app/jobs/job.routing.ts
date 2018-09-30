@@ -11,6 +11,13 @@ const routes: Routes = [
         {path: 'user', loadChildren: '../users/users.module#UsersModule'},
     ]
     },
+    {path: ':username',
+    children: [
+        {path: 'jobindex', component: JobsComponent},
+        {path: 'postjob', component: JobpostComponent},
+        {path: 'user', loadChildren: '../users/users.module#UsersModule'},
+    ]
+    },
 ];
 
 @NgModule({

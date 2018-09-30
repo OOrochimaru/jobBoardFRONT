@@ -36,7 +36,6 @@
                             <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)">
                                 <p *ngIf="f.username.errors.required" class="alert-danger">Email is required</p>
                                 <p *ngIf="f.username.errors.pattern" class="alert-danger">Email has invalid pattern</p>
-                                <p *ngIf="errorMessage" class="alert-danger">Email has invalid pattern</p>
                             </div>
                           </div>
                      

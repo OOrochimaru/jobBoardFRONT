@@ -4,7 +4,7 @@
     <div class="logo-menu">
       <nav class="navbar navbar-default" role="navigation" data-spy="affix" data-offset-top="50">
         <!-- user not logged in header -->
-        <div class="container" *appShowAuthed='true'>
+        <div class="container" *appShowAuthed='false'>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -61,7 +61,7 @@
         </div>
 
         <!-- //user logged in  header-->
-        <div class="container" *appShowAuthed='false'>
+        <div class="container" *appShowAuthed='true'>
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -123,8 +123,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-right float-right">
               <li class="left">
-                <a routerLink="/job/postjob">
-                  <i class="ti-pencil-alt"></i> </a>
+                <a [routerLink]="['/job', username,'postjob']">
+                  <i class="ti-pencil-alt"></i>{{username}} </a>
               </li>
               <li class="left">
                   <a (click)="logout()" routerLink="">

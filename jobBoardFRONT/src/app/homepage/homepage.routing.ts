@@ -8,9 +8,10 @@ const routes: Routes = [
     component: HomepageComponent,
     resolve: {
         isAuthenticated: HomeAuthResolver
-    }
+    },
 
 },
+{path: ':id', component: HomepageComponent}
 ];
 
 @NgModule({

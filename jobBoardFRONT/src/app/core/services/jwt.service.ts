@@ -13,6 +13,7 @@ export class JwtService {
     return window.localStorage['jwtToken'];
   }
   destroyToken(){
-    window.localStorage.removeItem['jwtToken'];
+    window.localStorage.removeItem('jwtToken');
+    console.log("token destroyToken() called");
   }
 }

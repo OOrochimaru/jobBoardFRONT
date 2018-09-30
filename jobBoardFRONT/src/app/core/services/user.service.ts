@@ -11,21 +11,26 @@ export class UserService {
   public currentUser = this.currentUserSubject.asObservable()
     .pipe(distinctUntilChanged());
 
-  isAuthenticationSubject = new ReplaySubject<boolean>(1);
-  isAuthenticated = this.isAuthenticationSubject.asObservable();
+  private isAuthenticationSubject = new ReplaySubject<boolean>(1);
+  public isAuthenticated = this.isAuthenticationSubject.asObservable();
   constructor(private apiService: ApiService,
     private jwtService: JwtService) {
   }
 
   //populating when the app first starts 
   populate(){
-    if (this.jwtService.getToken) {
+    if (this.jwtService.getToken()) {
+      console.log(this.jwtService.getToken());
       this.apiService.get('index/user')
       .subscribe(data => {
+        console.log("populate data");
         this.setAuth(data.user)
       }, error => {
+        console.log("populate error")
         this.purgeAuth();
       })
+    }else{
+      this.purgeAuth();
     }
   }
 
@@ -43,6 +48,7 @@ export class UserService {
       this.jwtService.destroyToken();
       this.currentUserSubject.next({} as User);
       this.isAuthenticationSubject.next(false);
+      console.log("************purgedAuth()*****");
   }
   attemptAuth(authType, userCredentials): Observable<User> {
     const route = (authType === 'register') ? '/register' : '/login';

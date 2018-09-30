@@ -10,25 +10,28 @@
           <div class="content">
             <form [formGroup]="myForm" (ngSubmit)="searchJob()">
               <div class="row">
-                <div class="col-md-6 col-sm-4">
+                <div class="col-md-6 col-sm-6">
                   <div class="form-group">
                     <input class="form-control" formControlName="name" type="text" placeholder="job title / keywords / company name">
                     <i class="ti-time"></i>
                   </div>
                 </div>
-                <div class="col-md-5 col-sm-4">
+                <div class="col-md-4 col-sm-4">
                   <div class="form-group">
                     <input class="form-control" formControlName="location" type="text" placeholder="city / province / zip code">
                     <i class="ti-location-pin"></i>
                   </div>
                 </div>
-                <div class="col-md-1 col-sm-4">
-                  <button type="submit" class="btn btn-search-icon">
-                    <i class="ti-search"></i>
+                <div class="col-md-2 col-sm-2">
+                  <button type="submit" class="btn btn-search-icon" value="button">
+                    <i class="ti-search"></i>Search
                   </button>
                 </div>
               </div>
             </form>
+                <div class="col-md-6 col-sm-6" *ngIf="f.name.errors && (f.name.dirty || f.name.touched || f.name.pristine)">
+                  <p *ngIf="f.name.errors.required" class="alert-danger">Email is required</p>
+                </div>
           </div>
           <div class="popular-jobs">
             <b>Popular Keywords: </b>
@@ -45,7 +48,7 @@
   <div class="container">
     <h2 class="section-title">Featured Jobs</h2>
     <div class="row">
-      <app-job-list [limit]= "5"></app-job-list>
+      <app-job-list [limit]="5"></app-job-list>
     </div>
   </div>
 </section>

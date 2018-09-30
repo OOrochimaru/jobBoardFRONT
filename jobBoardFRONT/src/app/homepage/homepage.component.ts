@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
 
   createForm(){
     this.myForm = this.fb.group({
-      name : [''],
+      name : ['', Validators.required],
       location : [''],
     })
   }
@@ -33,7 +33,7 @@ export class HomepageComponent implements OnInit {
   }
 
   searchJob(){
-    
+    console.log(this.myForm.value);
   }
 
 }

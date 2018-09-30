@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { HomepageComponent } from "./homepage.component";
-import { HomeAuthResolver } from "./home-auth.service";
+import { HomeAuthResolver } from "./home-auth-resolver.service";
 
 const routes: Routes = [
     {path: '', 

@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 @Injectable()
 export class UserService {
   private currentUserSubject = new BehaviorSubject<User>({} as User);
-  private currentUser = this.currentUserSubject.asObservable()
+  public currentUser = this.currentUserSubject.asObservable()
     .pipe(distinctUntilChanged());
 
   isAuthenticationSubject = new ReplaySubject<boolean>(1);

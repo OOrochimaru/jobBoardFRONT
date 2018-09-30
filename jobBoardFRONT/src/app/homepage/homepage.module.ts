@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomepageRouterModule } from './homepage.routing';
 import { HomepageComponent } from './homepage.component';
 import { SharedModule } from '../shared/shared.module';
-import { HomeAuthResolver } from './home-auth.service';
+import { HomeAuthResolver } from './home-auth-resolver.service';
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -16,7 +16,7 @@ import { HomeAuthResolver } from './home-auth.service';
     // FormGroup,
     // FormControl
   ],
-  providers: [],
+  providers: [HomeAuthResolver],
   exports:[
     HomepageComponent,
     HomeAuthResolver

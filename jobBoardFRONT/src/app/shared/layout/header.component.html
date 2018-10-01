@@ -48,7 +48,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right float-right">
               <li class="left">
-                <a routerLink="job/postjob">
+                <a routerLink="job/postjob" (click)="checkUserAuthentication()">
                   <i class="ti-pencil-alt"></i> Post A Job</a>
               </li>
               <li class="right">

@@ -20,13 +20,10 @@ export class UserService {
   //populating when the app first starts 
   populate(){
     if (this.jwtService.getToken()) {
-      console.log(this.jwtService.getToken());
       this.apiService.get('index/user')
       .subscribe(data => {
-        console.log("populate data");
         this.setAuth(data.user)
       }, error => {
-        console.log("populate error")
         this.purgeAuth();
       })
     }else{
@@ -48,14 +45,12 @@ export class UserService {
       this.jwtService.destroyToken();
       this.currentUserSubject.next({} as User);
       this.isAuthenticationSubject.next(false);
-      console.log("************purgedAuth()*****");
   }
   attemptAuth(authType, userCredentials): Observable<User> {
     const route = (authType === 'register') ? '/register' : '/login';
     console.log(route);
     return this.apiService.post('index'+route, { user: userCredentials })
       .pipe(map(data => {
-        console.log(data);
         this.setAuth(data.user);
         return data;
       }));
@@ -64,8 +59,6 @@ export class UserService {
   checkUser(email: string){
       console.log(email);
       return this.apiService.post('index/checkuser', {user: email}).pipe(map(data => {
-        console.log()
-        console.log(data);
         return data;
       }))
   }

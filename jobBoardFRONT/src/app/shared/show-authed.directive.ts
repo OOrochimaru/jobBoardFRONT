@@ -19,10 +19,8 @@ import {
     condition: boolean;
   
     ngOnInit() {
-      console.log("ngonit enter");
       this.userService.isAuthenticated.subscribe(
         (isAuthenticated) => {
-          console.log("****** appShowAuthed******"+ isAuthenticated);
           if (isAuthenticated && this.condition || !isAuthenticated && !this.condition) {
             this.viewContainer.createEmbeddedView(this.templateRef);
           } else {
@@ -34,7 +32,6 @@ import {
   
     @Input() set appShowAuthed(condition: boolean) {
       this.condition = condition;
-      console.log(condition+" checked");
     }
   
   }

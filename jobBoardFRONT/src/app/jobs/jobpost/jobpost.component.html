@@ -1,162 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="Jobboard">
-    
-    <title>JobBoard - Bootstrap HTML5 Job Portal Template</title>    
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">    
-    <link rel="stylesheet" href="assets/css/jasny-bootstrap.min.css" type="text/css">  
-    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">  
-    <!-- Material CSS -->
-    <link rel="stylesheet" href="assets/css/material-kit.css" type="text/css">
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" type="text/css"> 
-    <link rel="stylesheet" href="assets/fonts/themify-icons.css"> 
-
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="assets/extras/animate.css" type="text/css">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="assets/extras/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="assets/extras/owl.theme.css" type="text/css">
-    <!-- Rev Slider CSS -->
-    <link rel="stylesheet" href="assets/extras/settings.css" type="text/css"> 
-    <!-- Editor -->
-    <link rel="stylesheet" href="assets/extras/froala_editor.min.css" type="text/css"> 
-    <!-- Slicknav js -->
-    <link rel="stylesheet" href="assets/css/slicknav.css" type="text/css">
-    <!-- Main Styles -->
-    <link rel="stylesheet" href="assets/css/main.css" type="text/css">
-    <!-- Responsive CSS Styles -->
-    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
-
-    <!-- Color CSS Styles  -->
-    <link rel="stylesheet" type="text/css" href="assets/css/colors/red.css" media="screen" />
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="assets/css/jobpost.css" rel="stylesheet" id="bootstrap-css">
-  </head>
-  <body>  
-
-      <!-- Page Header Start -->
-      <div class="page-header" style="background: url(assets/img/banner1.jpg); min-height: 250px " >
-        <div class="container">
-          <div class="row">         
-            <div class="col-md-12">
-              <!-- <div class="breadcrumb-wrapper">
-                <h2 class="product-title">Post A Job</h2> -->
-                <!-- <ol class="breadcrumb">
-                  <li><a href="#"><i class="ti-home"></i> Home</a></li>
-                  <li class="current">Post A Job</li>
-                </ol> -->
-              <!-- </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Page Header End -->    
-
-   
-
-<div class="container">
+<div class="page-header" style="background: url(assets/img/banner1.jpg); min-height: 250px ">
+  <div class="container">
     <div class="row">
-    <h4>Post a Job</h4>
-   <div class="col col-md-2"></div>
-      <div class="col col-md-8">
-    <form>
-    <div class="form-group required">
-      <label for="exampleInputEmail1" class='control-label'>Job Title</label>
-      <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Ex: Senior Mobile Developer">
-      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-    </div>
-    <div class="form-group required">
-      <label for="exampleInputPassword1" class='control-label'>Location</label>
-      <input type="password" class="form-control"  placeholder="Ex:Hyderabad">
-    </div>
-    <div class="form-group required">
-      <label for="exampleSelect1" class='control-label'>Job Type</label>
-      <select class="form-control" >
-        <option>Full Time</option>
-        <option>Part Time</option>
-        <option>Contract</option>
-      </select>
-    </div>
-  
-    <div class="form-group required">
-      <label for="exampleTextarea" class='control-label'>Job Description</label>
-      <textarea class="form-control" rows="7"></textarea>
-    </div>
-    <div class="form-group required">
-      <label for="exampleInputPassword1" class='control-label'>Company Name</label>
-      <input type="password" class="form-control" placeholder="Ex:Infosys">
-    </div>
-    <div class="form-group required">
-      <label for="exampleTextarea" class='control-label'>How to Apply</label>
-      <textarea class="form-control" rows="3" placeholder="For Example: Email your resume to jobs@xyz.com"></textarea>
-    </div>
-      <ul class="media-date text-uppercase reviews list-inline">
-      <li class="mm"><button type="submit" class="btn btn-primary">Preview</button></li>
-      <li class="aaaa"><button type="submit" class="btn btn-success">Publish</button></li>
-    </ul>
-  </form>
-  </div>
-    <div class="col col-md-2"></div>
-  
-  </div>
-  </div>   
-      
-      <!-- Copyright Start  -->
-      <div id="copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="site-info text-center">
-                <p>All copyrights reserved @ 2017 - Design & Development by <a href="http://github.com/oorochimaru/jobBoardFrontHTML">Ryamsey Ryam & Rajnesh</a></p>
-              </div>   
-            </div>
-          </div>
+      <div class="col-md-12">
+        <div class="breadcrumb-wrapper">
+                <h2 class="product-title">Post A Job</h2>
+        <ol class="breadcrumb">
+                  <li><a routerLink="/index"><i class="ti-home"></i> Home</a></li>
+                  <li class="current">Post A Job</li>
+                </ol>
         </div>
       </div>
-      <!-- Copyright End -->
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <h4>Post a Job</h4>
+    <div class="col col-md-2"></div>
+    <div class="col col-md-8">
+      <form [formGroup]="myForm" novalidate (ngSubmit)="postAJob()">
+        <div class="form-group required">
+          <label for="exampleInputEmail1" class='control-label'>Job Title</label>
+          <input type="email" class="form-control" formControlName="jobTitle" aria-describedby="emailHelp" placeholder="Ex: Senior Mobile Developer">
+          <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        </div>
+        <div class="form-group required">
+          <label for="exampleInputPassword1" class='control-label'>Location</label>
+          <input type="text" class="form-control" formControlName="jobLocation" value="{{location}}" placeholder="Ex:Hyderabad">
+        </div>
+        <div class="form-group required">
+          <label for="exampleSelect1" class='control-label'>Job Type</label>
+          <select class="form-control" formControlName="jobType">
+            <option default="true">Full Time</option>
+            <option>Part Time</option>
+            <option>Contract</option>
+          </select>
+        </div>
 
-    <!-- Footer Section End -->  
-    
-    <!-- Go To Top Link -->
-    <a href="#" class="back-to-top">
-      <i class="ti-arrow-up"></i>
-    </a>
+        <div class="form-group required">
+          <label for="exampleTextarea" class='control-label'>Job Description</label>
+          <textarea class="form-control" formControlName="jobDescription" rows="7"></textarea>
+        </div>
+        <div class="form-group required">
+          <label for="exampleInputPassword1" class='control-label'>Company Name</label>
+          <input type="text" class="form-control" formControlName="companyName" value="{{companyName}}" placeholder="Ex:Infosys">
+        </div>
+        <div class="form-group required">
+          <label for="exampleInputPassword1" class='control-label'>Experience</label>
+          <input type="text" class="form-control" formControlName="experience" placeholder="Your Experience">
+        </div>
+        <div class="form-group required">
+          <label for="exampleTextarea" class='control-label'>How to Apply</label>
+          <textarea class="form-control" rows="3" formControlName="applicationMethod" placeholder="For Example: Email your resume to jobs@xyz.com"></textarea>
+        </div>
+        <ul class="media-date text-uppercase reviews list-inline">
+          <!-- <li class="mm"><button type="submit" class="btn btn-primary">Preview</button></li> -->
+          <li class="aaaa"><button type="submit" class="btn btn-success">Publish</button></li>
+        </ul>
+      </form>
+    </div>
+    <div class="col col-md-2"></div>
 
-    <!-- Main JS  -->
-    <script type="text/javascript" src="assets/js/jquery-min.js"></script>      
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>    
-    <script type="text/javascript" src="assets/js/material.min.js"></script>
-    <script type="text/javascript" src="assets/js/material-kit.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.parallax.js"></script>
-    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.slicknav.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.counterup.min.js"></script>
-    <script type="text/javascript" src="assets/js/waypoints.min.js"></script>
-    <script type="text/javascript" src="assets/js/jasny-bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="assets/js/form-validator.min.js"></script>
-    <script type="text/javascript" src="assets/js/contact-form-script.js"></script>    
-    <script type="text/javascript" src="assets/js/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="assets/js/froala_editor.min.js"></script>
-    <script type="text/javascript" src="assets/js/fullscreen.min.js"></script>
-
-      <script>
-        $(function() {
-          $('#edit').froalaEditor()
-        });
-      </script>
-      
-  </body>
-</html>
+  </div>
+</div>

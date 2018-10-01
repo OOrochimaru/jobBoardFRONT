@@ -15,24 +15,29 @@ export class HomepageComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private apiService: ApiService
 
-) { }
+  ) { }
+
+  
 
   ngOnInit() {
     this.createForm();
 
   }
 
-  createForm(){
+  createForm() {
     this.myForm = this.fb.group({
-      name : ['', Validators.required],
-      location : [''],
+      name: ['', Validators.required],
+      location: [''],
     })
   }
-  private get f(){
+  private get f() {
     return this.myForm.controls;
   }
 
-  searchJob(){
+  searchJob() {
+
+    const query = this.myForm.value;
+
     console.log(this.myForm.value);
   }
 

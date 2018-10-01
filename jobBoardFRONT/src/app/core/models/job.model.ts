@@ -1,8 +1,11 @@
 export interface Job {
  
 
-    title: string;
-    location: string;
-    type: string;
-    discription: string
+    jobTitle: string;
+    jobLocation: string;
+    jobType: string;
+    companyName: string
+    experience: string
+    applicationMethod: string
+    jobDescription: string
 }

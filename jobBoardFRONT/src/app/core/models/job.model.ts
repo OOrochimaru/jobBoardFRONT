@@ -1,6 +1,4 @@
 export interface Job {
- 
-
     jobTitle: string;
     jobLocation: string;
     jobType: string;

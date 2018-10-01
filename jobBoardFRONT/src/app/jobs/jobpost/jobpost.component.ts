@@ -4,6 +4,7 @@ import { UserService } from '../../core/services';
 import { tap } from 'rxjs/operators';
 import { JobService } from '../../core/services/job.service';
 import { Job } from '../../core/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jobpost',
@@ -15,27 +16,29 @@ export class JobpostComponent implements OnInit {
   myForm: FormGroup;
   constructor(private fb: FormBuilder,
     private jobService: JobService,
-    private userService: UserService) {
+    private userService: UserService,
+    private router: Router
+  ) {
 
   }
   location: string;
   companyName: string;
-  username: string;
+  userid: string;
   jobForm: Job;
   ngOnInit() {
     this.userService.currentUser.subscribe(user => {
-      console.log(user)
+      // console.log(user)
       this.location = user.userlocation;
-      this.companyName = user.userCompany;
-      this.username = user.username;
+      // this.companyName = user.userCompany;
+      this.userid = user.userid;
 
       // this.location = user.userlocation;
       // this.location.foreach(location => {
       //   this.location.push(location);
       // })
-      console.log(this.location);
-      console.log(this.companyName);
-      console.log(this.username);
+      // console.log(this.location);
+      // console.log(this.companyName);
+      // console.log(this.username);
     })
     this.createForm();
   }
@@ -51,7 +54,7 @@ export class JobpostComponent implements OnInit {
 
     })
   }
-  private get f(){
+  private get f() {
     return this.myForm.controls;
   }
 
@@ -59,8 +62,10 @@ export class JobpostComponent implements OnInit {
   postAJob() {
     if (!this.myForm.valid) {
       this.jobForm = this.myForm.value;
-      console.log(this.jobForm);
-      this.jobService.save(this.username, this.jobForm);
+      this.jobService.save(this.userid, this.jobForm).subscribe(data => {
+        // console.log(data);
+          this.router.navigateByUrl('/job/jobindex');
+      });
     }
   }
 

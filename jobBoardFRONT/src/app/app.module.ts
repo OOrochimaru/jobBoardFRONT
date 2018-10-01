@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 // import { AboutusModule } from './aboutus/aboutus.module';
 import { ContactusModule } from './contactus/contactus.module';
 import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
+// import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { CoreModule } from './core/core.module';
 
   ],
   imports: [
-    AuthModule,
+    // AuthModule,
     BrowserModule,
     AppRouterMoudle,
     SharedModule,

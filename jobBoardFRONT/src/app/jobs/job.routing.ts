@@ -2,13 +2,13 @@ import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { JobsComponent } from "./jobhome/jobs.component";
 import { JobpostComponent } from "./jobpost/jobpost.component";
-import { NoAuthGuard } from "../auth/no-auth.service";
+import { AuthGuard } from "../auth/auth.service";
 
 const routes: Routes = [
-    {path: '',
+    {path: '', 
     children: [
         {path: 'jobindex', component: JobsComponent},
-        {path: 'postjob',canActivate: [NoAuthGuard], component: JobpostComponent},
+        {path: 'postjob',canActivate: [AuthGuard], component: JobpostComponent},
         {path: 'user', loadChildren: '../users/users.module#UsersModule'},
     ]
     },

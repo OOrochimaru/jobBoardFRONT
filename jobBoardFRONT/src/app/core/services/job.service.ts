@@ -15,8 +15,8 @@ export class JobService {
 
     // todo:
     // check if the job is to be updated or new posted
-    console.log(path);
-    return this.apiService.post('index/'+[path]+'/addjob', {job: body})
+    // console.log(path);
+    return this.apiService.post('index/'+path+'/addjob', {job: body})
     .pipe(map(data => data.job));
   }
 

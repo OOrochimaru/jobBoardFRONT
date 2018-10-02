@@ -24,11 +24,13 @@ export class JobpostComponent implements OnInit {
   location: string;
   companyName: string;
   userid: string;
+  username: string;
   jobForm: Job;
   ngOnInit() {
     this.userService.currentUser.subscribe(user => {
       // console.log(user)
       this.location = user.userlocation;
+      this.username = user.username;
       // this.companyName = user.userCompany;
       this.userid = user.userid;
 
@@ -60,11 +62,12 @@ export class JobpostComponent implements OnInit {
 
 
   postAJob() {
-    if (!this.myForm.valid) {
+    if (this.myForm.valid) {
       this.jobForm = this.myForm.value;
+      console.log(this.jobForm);
       this.jobService.save(this.userid, this.jobForm).subscribe(data => {
-        // console.log(data);
-          this.router.navigateByUrl('/job/jobindex');
+        console.log(data);
+          this.router.navigateByUrl('/job/'+this.username+'/preview');
       });
     }
   }

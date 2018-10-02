@@ -3,12 +3,14 @@ import { JobpostComponent } from './jobpost/jobpost.component';
 import { JobsComponent } from './jobhome/jobs.component';
 import { JobRouterMoudle } from './job.routing';
 import { SharedModule } from '../shared/shared.module';
+import { JobpreviewComponent } from './jobpost/jobpreview/jobpreview.component';
 
 
 @NgModule({
   declarations: [
     JobpostComponent,
-    JobsComponent
+    JobsComponent,
+    JobpreviewComponent
   ],
   imports: [
     JobRouterMoudle,

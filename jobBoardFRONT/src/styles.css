@@ -2,6 +2,9 @@
 /* @import "assets/css/bootstrap.min.css";  */
 @import '~bootstrap/dist/css/bootstrap.css';
 /* @import 'assets/fonts/themify-icons.css'; */
+@import 'assets/css/font-awesome.min.css';
+@import 'assets/css/slidr.css';
+/* @import 'assets/css/icofont.css'; */
 @import "assets/css/main.css";
 @import "assets/css/responsive.css";
 @import "assets/css/colors/red.css";

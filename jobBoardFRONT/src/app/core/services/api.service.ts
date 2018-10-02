@@ -38,7 +38,7 @@ get(path: string
 }
 
 post(path: string, body: Object = {}): Observable<any>{
-    // console.log(body);
+    console.log("***********api-service-post***********"+path);
     return this.http.post(`${environment.api_url}${path}`, JSON.stringify(body))
     .pipe(catchError(this.formattingErrors));
 }

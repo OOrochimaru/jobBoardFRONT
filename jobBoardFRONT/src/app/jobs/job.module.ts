@@ -4,12 +4,13 @@ import { JobsComponent } from './jobhome/jobs.component';
 import { JobRouterMoudle } from './job.routing';
 import { SharedModule } from '../shared/shared.module';
 import { JobpreviewComponent } from './jobpost/jobpreview/jobpreview.component';
-
+import { JoblistComponent } from './jobpost/joblist/joblist.component';
 
 @NgModule({
   declarations: [
     JobpostComponent,
     JobsComponent,
+    JoblistComponent,
     JobpreviewComponent
   ],
   imports: [
@@ -19,7 +20,9 @@ import { JobpreviewComponent } from './jobpost/jobpreview/jobpreview.component';
   providers: [],
   exports: [
     JobpostComponent,
-    JobsComponent
+    JobsComponent,
+    JoblistComponent,
+    JobpreviewComponent
   ]
 })
 export class JobModule { }

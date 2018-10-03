@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './joblist.component.html',
   styleUrls: ['./joblist.component.css']
 })
-export class JoblistComponent implements OnInit {
+export class JoblistComponent implements OnInit  {
 
   currentUser: User;
   username: string;
@@ -25,23 +25,10 @@ export class JoblistComponent implements OnInit {
       this.currentUser = user;
       this.username = this.currentUser.username;
       this.userid = this.currentUser.userid;
-
-      console.log(this.userid);
-      this.jobService.get(this.userid).subscribe(data => 
-        // console.log(data);
-        this.jobs = data
-        // console.log(this.jobs);
-      // }
-      // console.log(data)
-        // console.log(typeof data+"type defined")
-        
-      );
-      console.log(this.jobs+"**********");
-
-
-      // this.route.params.subscribe(param => {
-      //   console.log(param.username)
-      // })
+      this.jobService.getUserJobs(this.userid).subscribe(data => {
+        console.log(data);
+        this.jobs = data.jobs;
+      });
     });
   }
 

@@ -3,8 +3,8 @@ import { NgModule } from "@angular/core";
 import { JobsComponent } from "./jobhome/jobs.component";
 import { JobpostComponent } from "./jobpost/jobpost.component";
 import { AuthGuard } from "../auth/auth.service";
-import { JobpreviewComponent } from "./jobpost/jobpreview/jobpreview.component";
 import { JoblistComponent } from "./jobpost/joblist/joblist.component";
+import { JobpreviewComponent } from "./jobpost/joblist/joblisting/jobpreview/jobpreview.component";
 
 const routes: Routes = [
     {
@@ -14,6 +14,7 @@ const routes: Routes = [
             { path: 'postjob', canActivate: [AuthGuard], component: JobpostComponent },
             { path: 'user', loadChildren: '../users/users.module#UsersModule' },
             { path: 'preview', component: JobpreviewComponent },
+            {path: ':jobId', component: JobpreviewComponent}
         ]
     },
     {
@@ -31,7 +32,8 @@ const routes: Routes = [
                     {path: ':jobTitle', component: JobpreviewComponent}
                 ]
 
-            }
+            },
+            {path: ':jobId', component: JobpreviewComponent}
         ]
     },
 ];

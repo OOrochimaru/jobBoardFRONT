@@ -19,11 +19,18 @@ export class JobService {
     return this.apiService.post('index/'+path+'/addjob', {job: body})
     .pipe(map(data => data.job));
   }
-  get(path: string){
+  getUserJobs(path: string){
     // console.log(path)
     return this.apiService.get('index/'+path+'/getUserJobs')
-    .pipe(map(data => <Job[]>data ));
+    // .pipe(map(data => <Job[]>data ));
     //.pipe(map(data =>console.log(data)));
+  }
+  getJobPreview(path: string){
+    return this.apiService.get('index/'+path+'/getJobPreview');
+  }
+  getUser(path: string){
+    console.log(path);
+    return this.apiService.get('index/'+path+'/getUser');
   }
 
 }

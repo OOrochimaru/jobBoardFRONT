@@ -130,7 +130,7 @@
 					<div class="post cms-e-section">
 						<div class="resume-head">
 							<p>
-								<a class="btn btn-back btn-secondary" href="jobs.html" role="button">
+								<a class="btn btn-back btn-secondary" [routerLink]="['/job', publisher.username, 'myjobs']" role="button">
 									<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
 									<span class="wc-editable" data-pk="ws_back_to_jobs" data-type="text">Back to all jobs</span>
 								</a>
@@ -159,15 +159,12 @@
 								<br />
 								<br />
 								<strong>Responsibilities:</strong>
-								<br />- Driving throughout the metropolitan area using maps and directions
-								<br />- Utilizing both manual and automatic transmission vehicles
-								<br />- Handling cash charge transactions correctly and core/part returns appropriatel.
-								<br />
+								{{job.jobDescription.description}}
 								<br />
 								<strong>Qualifications:</strong>
-								<br />- Agility to bend to floor-level shelves and reach to upper shelves (eight feet) with use of stool or ladder when
-								necessary
-								<br />- Stamina to stand and walk for entire work shift.</p>
+								<br />
+								{{job.jobDescription.qualification}}
+								<br /></p>
 						</div>
 					</div>
 

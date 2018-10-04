@@ -12,12 +12,20 @@ export class HeaderComponent implements OnInit {
 
   currentuser: User;
   username: string;
+  employer : boolean;
   isAuthenticated: boolean;
   ngOnInit() {
 
   this.userService.currentUser.subscribe((user) => {
       this.currentuser = user;
+      console.log(this.currentuser.role)
       this.username = this.currentuser.username;
+      console.log(this.currentuser);
+      if (this.currentuser.role === 'employer') {
+        this.employer = true;
+      }else{
+        this.employer = false;
+      }
       // console.log(this.currentuser.username);
   });
   this.userService.isAuthenticated.subscribe((authenticated)=>{

@@ -24,7 +24,7 @@ import { JobListingComponent } from './jobpost/joblist/joblisting/joblisting.com
     JobsComponent,
     JoblistComponent,
     JobpreviewComponent,
-    JobListingComponent
+    JobListingComponent,
   ]
 })
 export class JobModule { }

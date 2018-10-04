@@ -11,6 +11,7 @@ import { ContactusModule } from './contactus/contactus.module';
 import { UsersModule } from './users/users.module';
 // import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { HomepageModule } from './homepage/homepage.module';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,8 @@ import { CoreModule } from './core/core.module';
     AppRouterMoudle,
     SharedModule,
     ContactusModule,
-    SharedModule,
-    CoreModule
+    CoreModule,
+    // HomepageModule
     // UsersModule
   ],
   providers: [],

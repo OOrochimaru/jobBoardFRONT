@@ -26,6 +26,7 @@ export class JobpostComponent implements OnInit {
   userid: string;
   username: string;
   jobForm: Job;
+  jobId: string
   ngOnInit() {
     this.userService.currentUser.subscribe(user => {
       // console.log(user)
@@ -67,7 +68,8 @@ export class JobpostComponent implements OnInit {
       console.log(this.jobForm);
       this.jobService.save(this.userid, this.jobForm).subscribe(data => {
         console.log(data);
-          this.router.navigateByUrl('/job/'+this.username+'/preview');
+        this.jobId = data.jobId;
+          this.router.navigateByUrl('/job/'+this.username+"/"+this.jobId);
       });
     }
   }

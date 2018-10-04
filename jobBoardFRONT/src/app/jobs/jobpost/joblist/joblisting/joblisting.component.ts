@@ -10,16 +10,16 @@ import { User, Job } from '../../../../core/models';
   templateUrl: './joblisting.component.html',
   styleUrls: ['./joblisting.component.css']
 })
-export class JobListingComponent implements OnInit{
-  
+export class JobListingComponent implements OnInit {
+
   username: string;
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService) { }
   @Input() jobs: Job[];
-  ngOnInit(){
-this.userService.currentUser.subscribe(user =>{
-  this.username = user.username;
-})
-console.log(this.jobs);
+  ngOnInit() {
+    this.userService.currentUser.subscribe(user => {
+      this.username = user.username;
+    })
+    console.log(this.jobs);
   }
 
   // currentUser: User;
@@ -45,7 +45,7 @@ console.log(this.jobs);
   //     // }
   //     // console.log(data)
   //       // console.log(typeof data+"type defined")
-        
+
   //     );
   //     console.log(this.jobs+"**********");
 

@@ -5,5 +5,6 @@ export interface Job {
     companyName: string
     experience: string
     applicationMethod: string
-    jobDescription: string
+    jobDescription: string;
+    jobId: string;
 }

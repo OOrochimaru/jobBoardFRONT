@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../core/services';
+import { Job } from '../core/models';
 
 @Component({
   selector: 'app-homepage',
@@ -9,6 +10,7 @@ import { ApiService } from '../core/services';
 })
 export class HomepageComponent implements OnInit {
 
+  
   submitted = false;
   myForm: FormGroup;
 
@@ -18,9 +20,14 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   
-
+ jobs: Job[] = [];
   ngOnInit() {
     this.createForm();
+       this.apiService.get('index/').subscribe(data => {
+      this.jobs = data.jobs;
+      this.jobs.forEach(job =>{
+        console.log(job);
+      })})
 
   }
 
@@ -41,4 +48,7 @@ export class HomepageComponent implements OnInit {
     console.log(this.myForm.value);
   }
 
+
+
+  
 }

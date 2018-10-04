@@ -5,6 +5,8 @@ import { HomepageRouterModule } from './homepage.routing';
 import { HomepageComponent } from './homepage.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeAuthResolver } from './home-auth-resolver.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { JobModule } from '../jobs/job.module';
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -12,14 +14,12 @@ import { HomeAuthResolver } from './home-auth-resolver.service';
   imports: [
     CommonModule,
     HomepageRouterModule,
-    SharedModule
-    // FormGroup,
-    // FormControl
+    SharedModule,
+    JobModule
   ],
   providers: [HomeAuthResolver],
   exports:[
     HomepageComponent,
-    HomeAuthResolver
   ]
 })
 export class HomepageModule { }

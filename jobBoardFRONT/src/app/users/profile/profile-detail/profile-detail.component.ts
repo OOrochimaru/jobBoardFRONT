@@ -57,4 +57,6 @@ export class ProfileDetailComponent implements OnInit {
       })
     })
   }
+
+  
 }

@@ -11,14 +11,20 @@ import { validateConfig } from '@angular/router/src/config';
 export class JobListComponent implements OnInit {
 
   @Input() limit: number;
-   jobs;
+   jobs: Job[] = [];
    totalPages: Array<number> = [1];
    currentPage = 1;
   constructor(private apiService: ApiService) { 
-    this.apiService.get('index').subscribe(data => {
-      console.log(data)
+ 
+  }
+
+  ngOnInit() {
+    this.apiService.get('index/').subscribe(data => {
       console.log(data.jobs.length)
       this.jobs = data.jobs;
+      this.jobs.forEach(job =>{
+        console.log(job);
+      })
      
       this.totalPages = Array.from(new Array(
         Math.ceil(6)), (val, index) => index + 1);
@@ -34,9 +40,6 @@ export class JobListComponent implements OnInit {
       // })
       // console.log(typeof this.job)
     });
-  }
-
-  ngOnInit() {
  
   }
   setToPage(pageNumber: number){

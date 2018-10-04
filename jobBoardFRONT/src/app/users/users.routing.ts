@@ -2,14 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users.component';
+import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
+import { ProfileBillingComponent } from './profile/profile-billing/profile-billing.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'details', component: UsersComponent }
+      { path: 'details', component: ProfileComponent }
     ]
-  }];
+  },
+{path: 'detail', component: ProfileDetailComponent},
+{path: 'billing', component: ProfileBillingComponent},
+
+];
 @NgModule({
   imports: [
     // CommonModule,

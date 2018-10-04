@@ -5,7 +5,7 @@ import { ContactusComponent } from "./contactus/contactus.component";
 import { NoAuthGuard } from "./auth/no-auth.service";
 
 const routes: Routes = [
-    {path: '', redirectTo:'/index', pathMatch:'full'},
+    {path: '', redirectTo:'index', pathMatch:'full'},
     {path: 'index',
     // canActivate: [NoAuthGuard],
      component: HomepageComponent},

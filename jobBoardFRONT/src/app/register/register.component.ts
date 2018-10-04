@@ -11,12 +11,13 @@ import { filter, debounce, debounceTime, distinctUntilKeyChanged, distinctUntilC
 export class RegisterComponent implements OnInit, Validators {
 
  
-  authType: String = '';
+  authType: String = 'register';
   submitted = false;
   public myForm: FormGroup;
   emailExist = false;
   emailRegex = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
-  passwordRegex = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
+  passwordRegex = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+  // "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
   numberRegex = /^[0-9]{10}$/;
   constructor(private form: FormBuilder,
      private router: Router,
@@ -37,16 +38,18 @@ export class RegisterComponent implements OnInit, Validators {
 
     this.myForm.controls['email'].valueChanges.pipe(
       filter(email => this.myForm.controls['email'].valid),
-      debounceTime(1000), 
+      debounceTime(10), 
       distinctUntilChanged(),
     ).subscribe(email => {
       this.userService.checkUser(email).subscribe((data) => {
         console.log(data);
-        this.emailExist = false;
-      }, (error) => {
-        console.log(error)
         this.emailExist = true;
-      })
+      }
+      , (error) => {
+        console.log("error occured")
+        this.emailExist = false;
+      }
+    )
     });
     
   }
@@ -60,7 +63,8 @@ export class RegisterComponent implements OnInit, Validators {
       cPassword: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
       number: ['', [Validators.required, Validators.pattern(this.numberRegex)]],
       gender: ['', Validators.required],
-      userType: ['', Validators.required]
+      userType: ['', Validators.required],
+      currentLocation: ['', Validators.required]
     }, { validator: this.checkPassword })
 
     // this.myForm = new FormGroup({
@@ -85,14 +89,20 @@ export class RegisterComponent implements OnInit, Validators {
     let inputted = this.myForm.controls;
     // console.log(this.myForm.get['userType'].value);
     console.log(this.myForm.value);
+    console.log(this.myForm.valid);
     
     // console.log() 
-    // if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 
-    //   inputted.cPassword.valid && inputted.number.valid) {
-    //     const userCredentials = this.myForm.value;
-    //   this.userService.attemptAuth(this.authType, userCredentials)
-    //   this.router.navigate(['/user/details']);
-    // }
+    if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 
+      inputted.cPassword.valid && inputted.number.valid
+    && inputted.currentLocation.valid) {
+        const userCredentials = this.myForm.value;
+        console.log(userCredentials);
+      this.userService.attemptSignup(this.authType, userCredentials).subscribe(data =>{
+        this.router.navigate(['/login']);
+
+        console.log(data);
+      })
+    }
 
   }
 }

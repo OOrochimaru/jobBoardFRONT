@@ -9,6 +9,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { JobListComponent } from './job-list/job-list.component';
 import { ErrorListComponent } from './error-list.component';
+import { DropdownDirective } from './layout/dropdown.directive';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ErrorListComponent } from './error-list.component';
     FooterComponent,
     ShowAuthedDirective,
     JobListComponent, 
-    ErrorListComponent
+    ErrorListComponent,
+    DropdownDirective,
   ],
   imports: [
     RouterModule,
@@ -36,7 +38,8 @@ import { ErrorListComponent } from './error-list.component';
     CommonModule,
     HttpClientModule,
     JobListComponent,
-    ErrorListComponent
+    ErrorListComponent,
+    DropdownDirective
   ]
 })
 export class SharedModule { }

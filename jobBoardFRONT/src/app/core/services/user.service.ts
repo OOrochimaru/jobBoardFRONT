@@ -46,14 +46,15 @@ export class UserService {
       this.currentUserSubject.next({} as User);
       this.isAuthenticationSubject.next(false);
   }
-  attemptAuth(authType, userCredentials): Observable<User> {
-    const route = (authType === 'register') ? '/register' : '/login';
-    console.log(route);
-    return this.apiService.post('index'+route, { user: userCredentials })
+  attemptLogin(authType, userCredentials): Observable<User> {
+    return this.apiService.post('index/'+authType, { user: userCredentials })
       .pipe(map(data => {
         this.setAuth(data.user);
         return data;
       }));
+  }
+  attemptSignup(authType, userCredentials): Observable<User>{
+    return this.apiService.post('index/'+authType, {user: userCredentials});
   }
 
   checkUser(email: string){

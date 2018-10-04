@@ -46,6 +46,7 @@
                             <input type="password" formControlName="password" class="form-control required" />
                             <div class="" *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
                                 <p *ngIf="f.password.errors.required" class="alert-danger">Password is required</p>
+                                <p *ngIf="errors" class="alert-danger">Username or Password is invalid</p>
                             </div>
                             <div class="help-block with-errors">
                                 <ul class="list-unstyled"></ul>

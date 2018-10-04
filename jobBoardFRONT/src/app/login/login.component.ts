@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       
       const credentials = this.myForm.value;
       // console.log(this.myForm.get('username'));
-      this.userService.attemptAuth('login', credentials)
+      this.userService.attemptLogin('login', credentials)
       .subscribe(data =>  {
         // console.log(data.user.userid);
 
@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         ,
       error =>{
         this.errors = error;
+        console.log(this.errors);
         this.submitted = false;
       } 
 

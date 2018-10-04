@@ -122,14 +122,52 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right float-right">
+               <li>
+                   <a [routerLink]="['/job', username,'postjob']">
+                  <i class="ti-pencil-alt"></i>Post A Job </a>
+               </li>
               <li class="left">
-                <a [routerLink]="['/job', username,'postjob']">
-                  <i class="ti-pencil-alt"></i>{{username}} </a>
+                      <a href="javascript:void(0)" class="dropdown-toggle header-user" data-toggle="dropdown">
+                        <div class="sidebar-user-material-content user-img text-center">
+                          <img [src]="imagePath" class="img-circle img-responsive pull-left" alt="">
+                          <!-- <h6 class="pull-left">{{user.name}}</h6> -->
+                          <span class="userName">{{username}}</span>
+                          <i class="icon-chevron-down"></i>
+                        </div>
+                      </a>
+            
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <a routerLink="/user/detail">
+                            <i class="icon-users2"></i> Profile</a>
+                        </li>
+                        <li>
+                          <a routerLink="/user/billing">
+                            <i class="icon-users2"></i>Billing</a>
+                        </li>
+                        <li>
+                          <a [routerLink]="['job', username, 'myjobs']">
+                            <i class="icon-key"></i>My Jobs</a>
+                        </li>
+                        <li>
+                          <a routerLink="/admin/changePassword">
+                            <i class="icon-key"></i>Shortlisted</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="logout()">
+                              <i class="icon-key"></i>Logout</a>
+                          </li>
+                        <!-- <li>
+                          <a href="javascript:void(0)" (click)="logout();">
+                            <i class="icon-paper-plane"></i> Sign Out</a>
+                        </li> -->
+                      </ul>
+              
               </li>
-              <li class="left">
+              <!-- <li class="left">
                   <a (click)="logout()" routerLink="">
                     <i class="ti-pencil-alt"></i> Logout</a>
-                </li>
+                </li> -->
               <!-- <li >
                 <a routerLink="/profile">
                   Profile

@@ -10,12 +10,12 @@ import { validateConfig } from '@angular/router/src/config';
 })
 export class JobListComponent implements OnInit {
   // j: Job[] = []
-  @Input() j: Job;
-  ngOnInit(){
 
-    console.log("**************");
+  @Input() j: Job;
+  constructor(){
     console.log(this.j);
-    console.log("**************");
+  }
+  ngOnInit(){
     // this.j = this.jobss;
   }
   // @Input() limit: number;

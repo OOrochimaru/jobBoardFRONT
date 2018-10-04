@@ -6,4 +6,6 @@ export interface User {
     userlocation: string;
     userid: string;
     role: string;
+    company: string;
+    number: string;
 }

@@ -18,9 +18,7 @@ export class HeaderComponent implements OnInit {
 
   this.userService.currentUser.subscribe((user) => {
       this.currentuser = user;
-      console.log(this.currentuser.role)
       this.username = this.currentuser.username;
-      console.log(this.currentuser);
       if (this.currentuser.role === 'employer') {
         this.employer = true;
       }else{
@@ -40,7 +38,6 @@ export class HeaderComponent implements OnInit {
   logout(){
     this.userService.purgeAuth();
     this.router.navigateByUrl("/");
-    console.log("logout")
   }
 
 

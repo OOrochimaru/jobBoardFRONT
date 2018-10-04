@@ -29,8 +29,7 @@ export class JobService {
     return this.apiService.get('index/'+path+'/getJobPreview');
   }
   getUser(path: string){
-    console.log(path);
-    return this.apiService.get('index/'+path+'/getUser');
+    return this.apiService.get('index/'+path+'/getUserDetails').pipe(map(data => data));
   }
   getSearchJobs(path: string, body){
       return this.apiService.post('index/'+path, {query: body});

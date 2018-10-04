@@ -4,18 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
 import { ProfileBillingComponent } from './profile/profile-billing/profile-billing.component';
-import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from '../auth/auth.service';
+import { NoAuthGuard } from '../auth/no-auth.service';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':username', 
     children: [
-      { path: 'details', component: ProfileComponent }
+      { path: 'details', canActivate: [AuthGuard], component: ProfileDetailComponent },
+      {path: 'billing', canActivate: [AuthGuard], component: ProfileBillingComponent},
     ]
-  },
-{path: 'detail', component: ProfileDetailComponent},
-{path: 'billing', component: ProfileBillingComponent},
-
+  }
 ];
 @NgModule({
   imports: [

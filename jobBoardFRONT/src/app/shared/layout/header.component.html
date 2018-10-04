@@ -138,11 +138,11 @@
             
                       <ul class="dropdown-menu dropdown-menu-right">
                         <li>
-                          <a routerLink="/user/detail">
+                          <a [routerLink]="['/user', username, 'details' ]">
                             <i class="icon-users2"></i> Profile</a>
                         </li>
                         <li *ngIf="employer">
-                          <a routerLink="/user/billing">
+                          <a [routerLink]="['/user', username, 'billing']">
                             <i class="icon-users2"></i>Billing</a>
                         </li>
                         <li>

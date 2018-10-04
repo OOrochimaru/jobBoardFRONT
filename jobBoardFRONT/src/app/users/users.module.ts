@@ -4,17 +4,17 @@ import { UsersComponent } from './users.component';
 import { UsersRoutingModule } from './users.routing';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
 import { ProfileBillingComponent } from './profile/profile-billing/profile-billing.component';
-import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   imports: [
     // CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    SharedModule
   ],
   declarations: [
     UsersComponent,
     ProfileDetailComponent,
     ProfileBillingComponent,
-    ProfileComponent
   ],
   exports: [UsersComponent]
 })

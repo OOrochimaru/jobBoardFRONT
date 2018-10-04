@@ -12,6 +12,7 @@ import { UsersModule } from './users/users.module';
 // import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { HomepageModule } from './homepage/homepage.module';
+import { JobModule } from './jobs/job.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomepageModule } from './homepage/homepage.module';
     SharedModule,
     ContactusModule,
     CoreModule,
+    JobModule
     // HomepageModule
     // UsersModule
   ],

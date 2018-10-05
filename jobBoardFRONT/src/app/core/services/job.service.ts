@@ -56,4 +56,9 @@ export class JobService {
       return this.apiService.get('index/'+path);
   }
 
+
+  getAppliedDetail(path: string){
+    return this.apiService.get('index/'+path);
+  }
+
 }

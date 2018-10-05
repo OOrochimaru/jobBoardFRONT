@@ -59,8 +59,12 @@ export class RegisterComponent implements OnInit, Validators {
     this.myForm = this.form.group({
       fullname: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
-      password: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
-      cPassword: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
+      password: ['', [Validators.required]
+        //  Validators.pattern(this.emailRegex)]
+        ],
+      cPassword: ['', [Validators.required,]
+        //  Validators.pattern(this.emailRegex)]
+        ],
       number: ['', [Validators.required, Validators.pattern(this.numberRegex)]],
       gender: ['', Validators.required],
       userType: ['', Validators.required],

@@ -168,8 +168,8 @@
 					</div>
 
 					<div class="post-actions cms-e-section">
-						<button (click)="applyForJob()" class="btn btn-primary btn-lg btn-apply" [disabled]="applied">
-							<span class="wc-editable" data-pk="front_button_apply" data-type="text">Apply</span>
+						<button (click)="applyForJob()"  class="btn btn-primary btn-lg btn-apply" [disabled]="applied || currentLoggedInUser.role === 'employer' ">
+							<span *ngIf="checkApply(job._id)" class="wc-editable" data-pk="front_button_apply" data-type="text">Apply</span>
 						</button>
 						<div class="share-actions">
 							<div class="socials-share">

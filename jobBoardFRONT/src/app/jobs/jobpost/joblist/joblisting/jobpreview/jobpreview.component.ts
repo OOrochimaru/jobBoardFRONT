@@ -16,7 +16,7 @@ export class JobpreviewComponent implements OnInit {
   job: Job;
   jobPublisherId: string;
   publisher: User;
-  applied = false;
+  applied = true;
 
   currentLoggedInUser: User;
 
@@ -31,7 +31,11 @@ export class JobpreviewComponent implements OnInit {
 
     this.userService.currentUser.subscribe(user => {
       this.currentLoggedInUser = user;
+      if (this.currentLoggedInUser.role === "jobseeker") {
+        this.applied = false;
+      }
       console.log(this.currentLoggedInUser);
+
     })
     this.route.data.subscribe((data) => {
       this.job = data.jobs.job;
@@ -40,28 +44,48 @@ export class JobpreviewComponent implements OnInit {
     });
   }
 
-  clicked(){
-    this.api.get('index/applyForJob').subscribe(data => {
-      console.log(data)
-    }, (error)=>{
-      console.log(error)
-    });
+
+  checkApply(jobId){
+
+   
+
+    var applieJobs = this.currentLoggedInUser.appliedJobs;
+    console.log('++++++++++++++++++++',jobId);
+    console.log('---------------------',applieJobs);
+
+
+    var response = applieJobs.includes(jobId); 
+
+    console.log('response--------------',response);
+
+    if(response){
+      return false;
+    }else{
+      return true;
+    }
+
+    
+    
   }
+
 
   applyForJob(){
     
     this.userService.isAuthenticated.subscribe(auth => {
       console.log(auth);
       if (auth) {
-
+        console.log("not user")
         this.jobService.applyForJob(this.job._id)
         .subscribe(data => {
-          console.log(data)
+          console.log('****************',data);
+         // this.applieJobs = data
         })
+        this.jobService.getAppliedDetail(this.job._id).subscribe(data =>{
+          console.log('+++++++++++++++++',data);
+         
+        })
+
         this.applied = true;
-        console.log(this.applied);
-      }else{
-        this.router.navigateByUrl('/login');
       }
     });
   }

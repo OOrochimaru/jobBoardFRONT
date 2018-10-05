@@ -29,7 +29,7 @@ const routes: Routes = [
        
         children: [
             { path: 'jobindex', component: JobsComponent },
-            { path: 'postjob', component: JobpostComponent },
+            { path: 'postjob', canActivate:[AuthGuard], component: JobpostComponent },
             { path: 'user', loadChildren: '../users/users.module#UsersModule' },
             { path: 'preview', component: JobpreviewComponent },
             {

@@ -8,4 +8,5 @@ export interface User {
     role: string;
     company: string;
     number: string;
+    appliedJobs: string[];
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Job, User } from '../../../../../core/models';
 import { JobService } from '../../../../../core/services/job.service';
 import { UserService } from '../../../../../core/services';
+import { map, concatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-jobpreview',
@@ -20,20 +21,24 @@ export class JobpreviewComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(param => {
-      this.jobId = param.jobId;
-    });
-    this.jobService.getJobPreview(this.jobId).subscribe(data => {
-      this.job = data.job;
-      console.log(this.job);
-      this.jobPublisherId = data.job.jobPublisher;
-      console.log(this.jobPublisherId);
-      this.jobService.getUser(this.jobPublisherId).subscribe(data => {
-        this.publisher = data.user;
-        console.log(this.publisher);
-      })
-    });
-   
-   }
+    this.route.data.subscribe((data) =>
+      {
+        this.job = data.jobs.job;
+        this.publisher = data.jobs.job.jobPublisher;
 
-}
+      })}
+    
+    }
+    // this.route.params.subscribe(param => {
+    //   this.jobId = param.jobId;
+    // });
+    // this.jobService.getJobPreview(this.jobId).subscribe(jobdata => {
+    //   console.log(jobdata);
+      
+    //   this.job = jobdata.job;
+    //   this.publisher = jobdata.job.jobPublisher;
+    //   console.log(this.publisher.username);
+    
+    // });
+   
+   

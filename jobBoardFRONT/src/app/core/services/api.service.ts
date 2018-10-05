@@ -31,6 +31,7 @@ private formattingErrors(error: any){
 get(path: string
     , params: HttpParams = new HttpParams()
 ): Observable<any>{
+    console.log("api service get ")
     return this.http.get(`${environment.api_url}${path}`, {
         params
     })

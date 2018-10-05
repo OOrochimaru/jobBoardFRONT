@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { ContactusComponent } from "./contactus/contactus.component";
 import { NoAuthGuard } from "./auth/no-auth.service";
 import { JobsComponent } from "./jobs/jobhome/jobs.component";
+import { AuthGuard } from "./auth/auth.service";
 
 const routes: Routes = [
     {path: '', redirectTo:'index', pathMatch:'full'},
@@ -13,7 +14,7 @@ const routes: Routes = [
     {path: 'contactus', component: ContactusComponent},
     {path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusModule'},
     {path: 'login', canActivate: [NoAuthGuard], loadChildren:'./login/login.module#LoginModule'},
-    {path: 'job', component: JobsComponent},
+    {path: 'job',loadChildren: './jobs/job.module#JobModule'},
     {path: 'register',canActivate: [NoAuthGuard], loadChildren: './register/register.module#RegisterModule'},
     {path: 'user', loadChildren: './users/users.module#UsersModule'},
 ];

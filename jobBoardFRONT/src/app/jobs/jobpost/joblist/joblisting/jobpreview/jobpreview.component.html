@@ -10,14 +10,13 @@
 									<span class="wc-editable" data-pk="front_job_summary" data-type="text">Job summary</span>
 								</div>
 							</div>
-
 							<div class="panel-body">
 								<p>
 									<span>
 										<span class="wc-editable" data-pk="front_post_on" data-type="text">Posted on</span>
 									</span>
 									<br>
-									<strong>{{job.jobDescription.publishedDate}}</strong>
+									<strong>{{job?.jobDescription.publishedDate}}</strong>
 								</p>
 								<p>
 									<span>
@@ -31,7 +30,7 @@
 										<span class="wc-editable" data-pk="ws_job_type" data-type="text">Job type</span>
 									</span>
 									<br>
-									<strong>{{job.jobDescription.jobType}}</strong>
+									<strong>{{job?.jobDescription.jobType}}</strong>
 								</p>
 								<p>
 									<span>
@@ -88,20 +87,20 @@
 									<span class="wc-editable" data-pk="front_label_contact_name" data-type="text">Contact Name</span>
 								</span>
 
-								<strong>{{publisher.username}}</strong>
+								<strong>{{publisher?.username}}</strong>
 							</p>
 							<p>
 								<span>
 									<span class="wc-editable" data-pk="front_label_phone" data-type="text">Phone</span>
 								</span>
-								<strong>{{publisher.number}}</strong>
+								<strong>{{publisher?.number}}</strong>
 							</p>
 							<p>
 								<span>
 									<span class="wc-editable" data-pk="front_label_email" data-type="text">Enter your email address</span>
 								</span>
 								<strong>
-									<a>{{publisher.email}}</a>
+									<a>{{publisher?.email}}</a>
 								</strong>
 							</p>
 							<p>
@@ -136,16 +135,16 @@
 								</a>
 							</p>
 
-							<h1 *ngIf="job">{{job.jobTitle}}</h1>
+							<h1 *ngIf="job">{{job?.jobTitle}}</h1>
 
 							<p>
 								<em>
 									<span class="wc-editable" data-pk="front_company" data-type="text">Company:</span>:
-									<strong>{{publisher.company}}</strong>
+									<strong>{{publisher?.company}}</strong>
 								</em>
 								<em>
 									<span class="wc-editable" data-pk="front_location" data-type="text">Location</span>:
-									<strong>{{publisher.userlocation}}</strong>
+									<strong>{{publisher?.userlocation}}</strong>
 								</em>
 							</p>
 						</div>
@@ -155,15 +154,15 @@
 						</h2>
 
 						<div class="paragraph">
-							<p>{{job.jobDescription.description}}
+							<p>{{job?.jobDescription.description}}
 								<br />
 								<br />
 								<strong>Responsibilities:</strong>
-								{{job.jobDescription.description}}
+								{{job?.jobDescription.description}}
 								<br />
 								<strong>Qualifications:</strong>
 								<br />
-								{{job.jobDescription.qualification}}
+								{{job?.jobDescription.qualification}}
 								<br /></p>
 						</div>
 					</div>

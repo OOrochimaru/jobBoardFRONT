@@ -30,8 +30,8 @@ export class JobsComponent implements OnInit {
       let credentials = this.myForm.value;
       console.log(credentials);
       this.jobService.getSearchJobs('searchJobs', credentials).subscribe(data => {
-        this.jobs = data.job
-        console.log(data);
+        this.jobs = data.jobs
+        console.log(this.jobs);
       })
 
     }

@@ -45,9 +45,7 @@ export class JobpreviewComponent implements OnInit {
   }
 
 
-  checkApply(jobId){
-
-   
+  checkApply(jobId){ 
 
     var applieJobs = this.currentLoggedInUser.appliedJobs;
     console.log('++++++++++++++++++++',jobId);

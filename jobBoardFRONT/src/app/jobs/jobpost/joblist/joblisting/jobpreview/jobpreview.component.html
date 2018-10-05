@@ -168,9 +168,9 @@
 					</div>
 
 					<div class="post-actions cms-e-section">
-						<a href="login.html" class="btn btn-primary btn-lg btn-apply">
+						<button (click)="applyForJob()" class="btn btn-primary btn-lg btn-apply" [disabled]="applied">
 							<span class="wc-editable" data-pk="front_button_apply" data-type="text">Apply</span>
-						</a>
+						</button>
 						<div class="share-actions">
 							<div class="socials-share">
 								<ul>

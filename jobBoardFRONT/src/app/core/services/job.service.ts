@@ -52,4 +52,8 @@ export class JobService {
       return this.apiService.post('index/'+path, {query: body});
   }
 
+  applyForJob(path: string){
+      return this.apiService.get('index/'+path);
+  }
+
 }

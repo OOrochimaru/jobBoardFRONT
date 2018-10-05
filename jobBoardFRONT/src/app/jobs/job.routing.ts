@@ -26,9 +26,7 @@ const routes: Routes = [
     },
     {
         path: ':username',
-        resolve: {
-            jobs: JobpreviewResolver
-        },
+       
         children: [
             { path: 'jobindex', component: JobsComponent },
             { path: 'postjob', component: JobpostComponent },
@@ -43,7 +41,11 @@ const routes: Routes = [
                 ]
 
             },
-            { path: ':jobId', component: JobpreviewComponent }
+            { path: ':jobId',
+            resolve: {
+                jobs: JobpreviewResolver
+            },
+            component: JobpreviewComponent }
         ]
     },
 ];

@@ -6,5 +6,5 @@ export interface Job {
     experience: string
     applicationMethod: string
     jobDescription: string;
-    jobId: string;
+    _id: string;
 }

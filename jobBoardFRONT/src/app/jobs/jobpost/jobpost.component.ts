@@ -68,7 +68,7 @@ export class JobpostComponent implements OnInit {
       console.log(this.jobForm);
       this.jobService.save(this.userid, this.jobForm).subscribe(data => {
         console.log(data);
-        this.jobId = data.jobId;
+        this.jobId = data._id;
           this.router.navigateByUrl('/job/'+this.username+"/"+this.jobId);
       });
     }

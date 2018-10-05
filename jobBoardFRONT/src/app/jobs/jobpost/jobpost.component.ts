@@ -33,7 +33,7 @@ export class JobpostComponent implements OnInit {
       this.location = user.userlocation;
       this.username = user.username;
       // this.companyName = user.userCompany;
-      this.userid = user.userid;
+      this.userid = user._id;
 
       // this.location = user.userlocation;
       // this.location.foreach(location => {

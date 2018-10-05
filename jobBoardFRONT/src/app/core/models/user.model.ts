@@ -4,7 +4,7 @@ export interface User {
     password: string;
     token: string;
     userlocation: string;
-    userid: string;
+    _id: string;
     role: string;
     company: string;
     number: string;

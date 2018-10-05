@@ -24,7 +24,9 @@ export class JoblistComponent implements OnInit  {
     this.userService.currentUser.subscribe((user) => {
       this.currentUser = user;
       this.username = this.currentUser.username;
-      this.userid = this.currentUser.userid;
+      this.userid = this.currentUser._id;
+      console.log(user);
+      console.log(this.userid);
       this.jobService.getUserJobs(this.userid).subscribe(data => {
         console.log(data);
         this.jobs = data.jobs;

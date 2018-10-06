@@ -22,7 +22,7 @@
 
 <div class="container">
 <div class="main1" style="padding:10px 10px 10px 10px;">
-		<div style="padding: 10px;">
+		<div style="padding: 10px;" *ngIf="currentUser.role === 'employer'">
 			<a [routerLink]="['/job', username, 'postjob']" class="btn btn-info">
 				<span class="textb">Add Job</span>
 			</a>

@@ -69,11 +69,11 @@
 
 									<strong>ZT1492521491</strong>
 								</p>
-								<p>
+								<!-- <p>
 									<a href="login.html" class="btn btn-primary btn-apply">
 										<span class="wc-editable" data-pk="front_button_apply" data-type="text">Apply</span>
 									</a>
-								</p>
+								</p> -->
 							</div>
 						</div>
 					</div>
@@ -86,19 +86,21 @@
 								<span>
 									<span class="wc-editable" data-pk="front_label_contact_name" data-type="text">Contact Name</span>
 								</span>
-
+								<br>
 								<strong>{{publisher?.username}}</strong>
 							</p>
 							<p>
 								<span>
 									<span class="wc-editable" data-pk="front_label_phone" data-type="text">Phone</span>
 								</span>
+								<br>
 								<strong>{{publisher?.number}}</strong>
 							</p>
 							<p>
 								<span>
 									<span class="wc-editable" data-pk="front_label_email" data-type="text">Enter your email address</span>
 								</span>
+								<br>
 								<strong>
 									<a>{{publisher?.email}}</a>
 								</strong>
@@ -107,6 +109,7 @@
 								<span>
 									<span class="wc-editable" data-pk="front_label_website" data-type="text">Website</span>
 								</span>
+								<br>
 								<strong>
 									<a href="http://www.azteklogistics.co.uk/" target="_blank">http://www.azteklogistics.co.uk/</a>
 								</strong>
@@ -116,11 +119,6 @@
 									<span class="wc-editable" data-pk="ws_company_details" data-type="text">Company details</span>
 								</a>
 							</p>
-							<p>
-								<a href="aztek-logistics-company-18.html#section-jobs" href="#">
-									<span class="wc-editable" data-pk="ws_see_all_jobs" data-type="text">See all 1 jobs</span>
-								</a>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -128,12 +126,6 @@
 				<div class="col-sm-8 col-xs-12">
 					<div class="post cms-e-section">
 						<div class="resume-head">
-							<p>
-								<a class="btn btn-back btn-secondary" [routerLink]="['/job', publisher.username, 'myjobs']" role="button">
-									<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-									<span class="wc-editable" data-pk="ws_back_to_jobs" data-type="text">Back to all jobs</span>
-								</a>
-							</p>
 
 							<h1 *ngIf="job">{{job?.jobTitle}}</h1>
 
@@ -171,6 +163,7 @@
 						<button (click)="applyForJob()"   class="btn btn-primary btn-lg btn-apply" [disabled]="applied || currentLoggedInUser.role === 'employer' ">
 							<span  class="wc-editable" data-pk="front_button_apply" data-type="text">Apply</span>
 						</button>
+						<p *ngIf="applied ||  currentLoggedInUser.role !== 'employer'">You have already applied for this job</p>
 						<div class="share-actions">
 							<div class="socials-share">
 								<ul>

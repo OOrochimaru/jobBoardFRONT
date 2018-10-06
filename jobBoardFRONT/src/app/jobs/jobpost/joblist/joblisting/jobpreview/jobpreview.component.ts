@@ -16,7 +16,7 @@ export class JobpreviewComponent implements OnInit {
   job: Job;
   jobPublisherId: string;
   publisher: User;
-  applied = true;
+  applied :boolean;
 
   currentLoggedInUser: User;
 
@@ -28,44 +28,27 @@ export class JobpreviewComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit() {
-
-    this.userService.currentUser.subscribe(user => {
-      this.currentLoggedInUser = user;
-      if (this.currentLoggedInUser.role === "jobseeker") {
-        this.applied = false;
-      }
-      console.log(this.currentLoggedInUser);
-
-    })
+  
     this.route.data.subscribe((data) => {
       this.job = data.jobs.job;
       this.publisher = data.jobs.job.jobPublisher;
-
+      
+      //current user 
+      this.userService.currentUser.subscribe(user => {
+        this.currentLoggedInUser = user;
+        
+        if (this.currentLoggedInUser.role === "jobseeker") {
+          this.jobService.getAppliedDetail(user._id).subscribe(appliedJobs => {
+            if(appliedJobs.includes(this.job._id)){
+              this.applied = false;
+            }else{
+              this.applied = true;
+            }
+          })
+        }
+      })
     });
   }
-
-
-  checkApply(jobId){ 
-
-    var applieJobs = this.currentLoggedInUser.appliedJobs;
-    console.log('++++++++++++++++++++',jobId);
-    console.log('---------------------',applieJobs);
-
-
-    var response = applieJobs.includes(jobId); 
-
-    console.log('response--------------',response);
-
-    if(response){
-      return false;
-    }else{
-      return true;
-    }
-
-    
-    
-  }
-
 
   applyForJob(){
     
@@ -76,14 +59,11 @@ export class JobpreviewComponent implements OnInit {
         this.jobService.applyForJob(this.job._id)
         .subscribe(data => {
           console.log('****************',data);
-         // this.applieJobs = data
-        })
-        this.jobService.getAppliedDetail(this.job._id).subscribe(data =>{
-          console.log('+++++++++++++++++',data);
-         
+          this.applied = true;
         })
 
-        this.applied = true;
+      }else{
+        this.router.navigateByUrl('/login');
       }
     });
   }

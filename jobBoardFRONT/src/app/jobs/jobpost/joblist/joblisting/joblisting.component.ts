@@ -13,10 +13,12 @@ import { User, Job } from '../../../../core/models';
 export class JobListingComponent implements OnInit {
 
   username: string;
+  currentUser : User;
   constructor(private userService: UserService) { }
   @Input() jobs: Job[];
   ngOnInit() {
     this.userService.currentUser.subscribe(user => {
+      this.currentUser = user;
       this.username = user.username;
     })
     console.log(this.jobs);

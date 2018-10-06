@@ -22,11 +22,15 @@ export class JobService {
   }
 
   //jobs of particular jobs
-  getUserJobs(path: string){
+  getEmployerJobs(path: string){
     // console.log(path)
-    return this.apiService.get('index/'+path+'/getUserJobs')
+    return this.apiService.get('index/'+path+'/getEmployerJobs')
     // .pipe(map(data => <Job[]>data ));
     //.pipe(map(data =>console.log(data)));
+  }
+
+  getUserJobs(path: string){
+    return this.apiService.get('index/'+path+"/getUserJobs");
   }
 
   //job data for job previewing 

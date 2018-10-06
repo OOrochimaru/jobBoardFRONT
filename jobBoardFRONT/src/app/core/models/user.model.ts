@@ -1,3 +1,5 @@
+import { Job } from "./job.model";
+
 export interface User {
     username: string;
     email: string;
@@ -8,5 +10,6 @@ export interface User {
     role: string;
     company: string;
     number: string;
-    appliedJobs: string[];
+    appliedJobs: Job[];
+    postedJobs: Job[];
 }

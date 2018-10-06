@@ -22,8 +22,10 @@ export class UserService {
     if (this.jwtService.getToken()) {
       this.apiService.get('index/user')
       .subscribe(data => {
+        console.log(data);
         this.setAuth(data.user)
       }, error => {
+        console.log(error)
         this.purgeAuth();
       })
     }else{

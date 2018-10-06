@@ -22,15 +22,34 @@ export class JoblistComponent implements OnInit  {
 
   ngOnInit() {
     this.userService.currentUser.subscribe((user) => {
+      
       this.currentUser = user;
-      this.username = this.currentUser.username;
-      this.userid = this.currentUser._id;
+      this.username = user.username;
+      this.userid = user._id;
+      if (user.role === 'employer') {
+        this.jobService.getEmployerJobs(user._id).subscribe(postedJobs => {
+          this.jobs = postedJobs.jobs;
+          console.log(this.jobs);
+        })
+      }
+
+      if (user.role === 'jobseeker') {
+        console.log(user._id+"''''''''''''''''''''");
+        this.jobService.getUserJobs(user._id).subscribe(appliedJobs => {
+          this.jobs = appliedJobs.jobs;
+          console.log(this.jobs);
+        })
+      }
+      
       console.log(user);
-      console.log(this.userid);
-      this.jobService.getUserJobs(this.userid).subscribe(data => {
-        console.log(data);
-        this.jobs = data.jobs;
-      });
+      console.log("***************************");
+
+
+      // console.log(this.userid);
+      // this.jobService.getUserJobs(this.userid).subscribe(data => {
+      //   console.log(data);
+      //   this.jobs = data.jobs;
+      // });
     });
   }
 

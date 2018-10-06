@@ -7,6 +7,7 @@ import { JobpreviewComponent } from './jobpost/joblist/joblisting/jobpreview/job
 import { JoblistComponent } from './jobpost/joblist/joblist.component';
 import { JobListingComponent } from './jobpost/joblist/joblisting/joblisting.component';
 import { JobpreviewResolver } from './jobpost/joblist/joblisting/jobpreview/jobpreview-resolver.service';
+import { JobcandidateComponent } from './jobpost/joblist/joblisting/jobcandidate/jobcandidate.component';
 @NgModule({
   declarations: [
     JobpostComponent,
@@ -14,6 +15,7 @@ import { JobpreviewResolver } from './jobpost/joblist/joblisting/jobpreview/jobp
     JoblistComponent,
     JobpreviewComponent,
     JobListingComponent,
+    JobcandidateComponent,
   ],
   imports: [
     JobRouterMoudle,
@@ -26,6 +28,7 @@ import { JobpreviewResolver } from './jobpost/joblist/joblisting/jobpreview/jobp
     JoblistComponent,
     JobpreviewComponent,
     JobListingComponent,
+    JobcandidateComponent
   ]
 })
 export class JobModule { }

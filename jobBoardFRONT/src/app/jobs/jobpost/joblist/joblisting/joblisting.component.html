@@ -46,10 +46,10 @@
 						<span>Edit</span>
 					</a>
 				</div>
-				<a *ngIf="currentUser.role === 'employer'" class="btn btn-secondary btn-sm" (click)="viewCandidate(job._id)">
+				<a [routerLink]="['/job', job._id, 'candidatelist']" *ngIf="currentUser.role === 'employer'" class="btn btn-secondary btn-sm" (click)="viewCandidate(job._id)">
 					<span class="glyphicon glyphicon-user"></span>
 					<span>Candidates</span>
-					<strong>(0)</strong>
+					<strong>({{job.jobApplicants.length}})</strong>
 				</a>
 				<a *ngIf="currentUser.role === 'employer'" class="btn btn-secondary btn-sm">
 					<span class="glyphicon glyphicon-resize-full"></span>

@@ -24,6 +24,10 @@ export class JobListingComponent implements OnInit {
     console.log(this.jobs);
   }
 
+  viewCandidate(){
+    
+  }
+
   // currentUser: User;
   // username: string;
   // userid: string;

@@ -65,4 +65,9 @@ export class JobService {
     return this.apiService.get('index/'+path);
   }
 
+  getApplicantsList(path: string){
+    console.log("getapplicantslistjobservice")
+    return this.apiService.get('index/'+path+'/getApplicantsList');
+  }
+
 }

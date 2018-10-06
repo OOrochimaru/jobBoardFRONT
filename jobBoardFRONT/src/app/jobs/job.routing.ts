@@ -7,6 +7,7 @@ import { NoAuthGuard } from "../auth/no-auth.service";
 import { JoblistComponent } from "./jobpost/joblist/joblist.component";
 import { JobpreviewComponent } from "./jobpost/joblist/joblisting/jobpreview/jobpreview.component";
 import { JobpreviewResolver } from "./jobpost/joblist/joblisting/jobpreview/jobpreview-resolver.service";
+import { JobcandidateComponent } from "./jobpost/joblist/joblisting/jobcandidate/jobcandidate.component";
 
 const routes: Routes = [
     {
@@ -25,11 +26,17 @@ const routes: Routes = [
         ]
     },
     {
+        path: ':jobId',
+        children: [
+            { path: 'candidatelist', component: JobcandidateComponent }
+        ]
+    },
+    {
         path: ':username',
-       
+
         children: [
             { path: 'jobindex', component: JobsComponent },
-            { path: 'postjob', canActivate:[AuthGuard], component: JobpostComponent },
+            { path: 'postjob', canActivate: [AuthGuard], component: JobpostComponent },
             { path: 'user', loadChildren: '../users/users.module#UsersModule' },
             { path: 'preview', component: JobpreviewComponent },
             {
@@ -41,11 +48,13 @@ const routes: Routes = [
                 ]
 
             },
-            { path: ':jobId',
-            resolve: {
-                jobs: JobpreviewResolver
-            },
-            component: JobpreviewComponent }
+            {
+                path: ':jobId',
+                resolve: {
+                    jobs: JobpreviewResolver
+                },
+                component: JobpreviewComponent
+            }
         ]
     },
 ];

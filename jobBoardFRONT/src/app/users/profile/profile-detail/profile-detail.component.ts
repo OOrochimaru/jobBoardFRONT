@@ -43,9 +43,9 @@ export class ProfileDetailComponent implements OnInit {
         this.currentUser = data.user;
         console.log(this.currentUser);
         if (data) {
-          console.log("patch value"+data.user.userlocation)
+          console.log("patch value"+data.user.location)
           this.myForm.patchValue({
-            address: this.currentUser.userlocation ? this.currentUser.userlocation : "",
+            address: this.currentUser.location? this.currentUser.location : "",
             company: this.currentUser.company ? this.currentUser.company : "",
             contactName: this.currentUser.username ? this.currentUser.username : "",
             companyName: this.currentUser.company ? this.currentUser.company : "",

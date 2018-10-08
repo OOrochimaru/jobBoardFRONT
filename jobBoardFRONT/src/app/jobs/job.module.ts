@@ -8,6 +8,7 @@ import { JoblistComponent } from './jobpost/joblist/joblist.component';
 import { JobListingComponent } from './jobpost/joblist/joblisting/joblisting.component';
 import { JobpreviewResolver } from './jobpost/joblist/joblisting/jobpreview/jobpreview-resolver.service';
 import { JobcandidateComponent } from './jobpost/joblist/joblisting/jobcandidate/jobcandidate.component';
+import { ShortlistedComponent } from './jobpost/joblist/joblisting/shortlisted/shortlisted.component';
 @NgModule({
   declarations: [
     JobpostComponent,
@@ -16,6 +17,7 @@ import { JobcandidateComponent } from './jobpost/joblist/joblisting/jobcandidate
     JobpreviewComponent,
     JobListingComponent,
     JobcandidateComponent,
+    ShortlistedComponent,
   ],
   imports: [
     JobRouterMoudle,

@@ -5,7 +5,7 @@ export interface User {
     email: string;
     password: string;
     token: string;
-    userlocation: string;
+    location: string;
     _id: string;
     role: string;
     company: string;

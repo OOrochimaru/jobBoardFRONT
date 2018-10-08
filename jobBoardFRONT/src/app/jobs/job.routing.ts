@@ -8,6 +8,7 @@ import { JoblistComponent } from "./jobpost/joblist/joblist.component";
 import { JobpreviewComponent } from "./jobpost/joblist/joblisting/jobpreview/jobpreview.component";
 import { JobpreviewResolver } from "./jobpost/joblist/joblisting/jobpreview/jobpreview-resolver.service";
 import { JobcandidateComponent } from "./jobpost/joblist/joblisting/jobcandidate/jobcandidate.component";
+import { JobListComponent } from "../shared/job-list/job-list.component";
 
 const routes: Routes = [
     {
@@ -53,7 +54,10 @@ const routes: Routes = [
                 resolve: {
                     jobs: JobpreviewResolver
                 },
-                component: JobpreviewComponent
+                children:[
+                    {path: '',  component: JobpreviewComponent},
+                    {path: 'shortListed', canActivate: [AuthGuard], component:  JobListComponent}
+                ],
             }
         ]
     },

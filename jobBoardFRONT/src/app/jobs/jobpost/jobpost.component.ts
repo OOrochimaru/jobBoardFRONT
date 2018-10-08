@@ -30,7 +30,7 @@ export class JobpostComponent implements OnInit {
   ngOnInit() {
     this.userService.currentUser.subscribe(user => {
       // console.log(user)
-      this.location = user.userlocation;
+      this.location = user.location;
       this.username = user.username;
       // this.companyName = user.userCompany;
       this.userid = user._id;

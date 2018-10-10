@@ -70,4 +70,8 @@ export class JobService {
     return this.apiService.get('index/'+path+'/getApplicantsList');
   }
 
+  getShortListedApplicants(path: string){
+    return this.apiService.get('index/'+path+'/getShortListedApplicants');
+  }
+
 }

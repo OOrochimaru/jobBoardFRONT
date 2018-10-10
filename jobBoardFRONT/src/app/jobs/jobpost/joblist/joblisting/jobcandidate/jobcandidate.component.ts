@@ -20,13 +20,12 @@ export class JobcandidateComponent implements OnInit {
         this.jobApplicantsList = jobApplicantsList.jobApplicants;
         console.log(this.jobApplicantsList);
       })
-      //find this job and its applicants
-
       console.log("********++++++"+data);
     console.log(data);
     })
   }
   shortListed(){
+    this.jobService.shortListACandidate()
     
   }
 

@@ -29,7 +29,7 @@ export class JoblistComponent implements OnInit  {
       if (user.role === 'employer') {
         this.jobService.getEmployerJobs(user._id).subscribe(postedJobs => {
           this.jobs = postedJobs.jobs;
-          console.log(this.jobs);
+          console.log("returned jobs", this.jobs);
         })
       }
 
@@ -37,20 +37,13 @@ export class JoblistComponent implements OnInit  {
         console.log(user._id+"''''''''''''''''''''");
         this.jobService.getUserJobs(user._id).subscribe(appliedJobs => {
           this.jobs = appliedJobs.jobs;
-          console.log(this.jobs);
+          console.log("jobseeker jobs*********", this.jobs);
         })
       }
       
-      console.log(user);
+      console.log("user", user);
       console.log("***************************");
-
-
-      // console.log(this.userid);
-      // this.jobService.getUserJobs(this.userid).subscribe(data => {
-      //   console.log(data);
-      //   this.jobs = data.jobs;
-      // });
-    });
+        });
   }
 
 

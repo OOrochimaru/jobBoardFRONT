@@ -73,5 +73,8 @@ export class JobService {
   getShortListedApplicants(path: string){
     return this.apiService.get('index/'+path+'/getShortListedApplicants');
   }
+  shortListACandidate(path: string, body){
+    return this.apiService.post('index/'+path+'/shortListACandidate', {applicant: body});
+  }
 
 }

@@ -16,7 +16,7 @@
 										<span class="wc-editable" data-pk="front_post_on" data-type="text">Posted on</span>
 									</span>
 									<br>
-									<strong>{{job?.jobDescription.publishedDate}}</strong>
+									<strong>{{job?.publishedDate}}</strong>
 								</p>
 								<p>
 									<span>
@@ -30,7 +30,7 @@
 										<span class="wc-editable" data-pk="ws_job_type" data-type="text">Job type</span>
 									</span>
 									<br>
-									<strong>{{job?.jobDescription.jobType}}</strong>
+									<strong>{{job?.jobType}}</strong>
 								</p>
 								<p>
 									<span>
@@ -131,12 +131,12 @@
 
 							<p>
 								<em>
-									<span class="wc-editable" data-pk="front_company" data-type="text">Company:</span>:
+									<span class="wc-editable" data-pk="front_company" data-type="text">Company:</span>
 									<strong>{{publisher?.company}}</strong>
 								</em>
 								<em>
 									<span class="wc-editable" data-pk="front_location" data-type="text">Location</span>:
-									<strong>{{publisher?.userlocation}}</strong>
+									<strong>{{job?.location}}</strong>
 								</em>
 							</p>
 						</div>
@@ -146,15 +146,15 @@
 						</h2>
 
 						<div class="paragraph">
-							<p>{{job?.jobDescription.description}}
+							<p>{{job?.description}}
 								<br />
 								<br />
 								<strong>Responsibilities:</strong>
-								{{job?.jobDescription.description}}
+								{{job?.description}}
 								<br />
 								<strong>Qualifications:</strong>
 								<br />
-								{{job?.jobDescription.qualification}}
+								{{job?.qualification}}
 								<br /></p>
 						</div>
 					</div>

@@ -14,13 +14,13 @@
               </label>
               <div class="col-md-8 col-sm-9">
                 <label>
-                  <input name="userType" [(ngModel)]="userType" formControlName="userType" type="radio" value="employer" checked>Employer </label>
+                  <input name="userType"  formControlName="userType" type="radio" value="employer" checked>Employer </label>
 
                 <label>
-                  <input name="userType" [(ngModel)]="userType" formControlName="userType" type="radio" value="jobseeker"> Job Seeker </label>
+                  <input name="userType" formControlName="userType" type="radio" value="jobseeker"> Job Seeker </label>
               </div>
             </div>
-            <p *ngIf="userType === 'Employer'">hello</p>
+            <!-- <p *ngIf="userType === 'employer'">hello</p> -->
             <div class="form-group">
               <label class="control-label col-sm-3">Full Name
                 <span class="text-danger">*</span>

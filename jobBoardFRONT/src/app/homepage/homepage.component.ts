@@ -37,7 +37,7 @@ export class HomepageComponent implements OnInit {
       location: [''],
     })
   }
-  private get f() {
+  public get f() {
     return this.myForm.controls;
   }
 

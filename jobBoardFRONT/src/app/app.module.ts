@@ -16,7 +16,7 @@ import { HomepageModule } from './homepage/homepage.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
+    // HomepageComponent,
 
   ],
   imports: [
@@ -26,7 +26,7 @@ import { HomepageModule } from './homepage/homepage.module';
     SharedModule,
     ContactusModule,
     CoreModule,
-    // HomepageModule
+    HomepageModule
     // UsersModule
   ],
   providers: [],

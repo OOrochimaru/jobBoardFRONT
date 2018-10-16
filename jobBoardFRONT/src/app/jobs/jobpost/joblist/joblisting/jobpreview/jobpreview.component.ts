@@ -24,14 +24,15 @@ export class JobpreviewComponent implements OnInit {
     private jobService: JobService,
     private router: Router,
     private api: ApiService,
-
     private userService: UserService) { }
 
   ngOnInit() {
   
     this.route.data.subscribe((data) => {
+      console.log(data);
       this.job = data.jobs.job;
       this.publisher = data.jobs.job.jobPublisher;
+      console.log(this.publisher);
       
       //current user 
       this.userService.currentUser.subscribe(user => {
@@ -51,7 +52,6 @@ export class JobpreviewComponent implements OnInit {
   }
 
   applyForJob(){
-    
     this.userService.isAuthenticated.subscribe(auth => {
       console.log(auth);
       if (auth) {

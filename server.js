@@ -1,0 +1,14 @@
+var path = require('path'),
+    express = require('express'),
+
+var app = express();
+let pathName = 'dist/jobBoardFRONT/';
+app.use(express.static(path.join(__dirname, pathName)));
+app.get("/*", function(req, res, next){
+    res.sendFile(path.join(__dirname, pathName,'index.html'));
+})
+
+app.listen(process.env.PORT || 4000, function(){
+  console.log('listening to port '+ server.address().port);
+});
+

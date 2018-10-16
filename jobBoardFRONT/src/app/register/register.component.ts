@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit, Validators {
     //   gender: this.gender
     // })
   }
-  private get f() {
+  public get f() {
     return this.myForm.controls;
   }
 

@@ -1,5 +1,5 @@
-var path = require('path'),
-    express = require('express'),
+var path = require('path');
+var express = require('express');
 
 var app = express();
 let pathName = 'dist/jobBoardFRONT/';
@@ -9,6 +9,6 @@ app.get("/*", function(req, res, next){
 })
 
 app.listen(process.env.PORT || 4000, function(){
-  console.log('listening to port '+ server.address().port);
+  console.log('listening to port ');
 });
 

@@ -1,2 +1,0 @@
-# jobBoardFRONT
-jobBoardAngular

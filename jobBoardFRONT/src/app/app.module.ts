@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AppRouterMoudle } from './app.routing';
@@ -26,7 +26,8 @@ import { HomepageModule } from './homepage/homepage.module';
     SharedModule,
     ContactusModule,
     CoreModule,
-    HomepageModule
+    HomepageModule,
+    BrowserAnimationsModule,
     // UsersModule
   ],
   providers: [],

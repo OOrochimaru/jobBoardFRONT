@@ -9,11 +9,15 @@ import { UserService } from './services/user.service'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttptokenInterceptor } from './interceptors/http.token.interceptor';
 import { JobService } from './services/job.service';
+import { ToastrModule } from 'ngx-toastr';
+import { ToasterService } from './services/toaster.service';
+
 @NgModule({
   declarations: [
   ],
   imports: [
     SharedModule,
+    ToastrModule.forRoot({preventDuplicates: true})
   ],
   providers: [
     {
@@ -23,7 +27,8 @@ import { JobService } from './services/job.service';
     ApiService,
     JwtService,
     UserService,
-    JobService
+    JobService,
+    ToasterService
   ],
   exports: [
   ]

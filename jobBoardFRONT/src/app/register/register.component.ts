@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../core/services/user.service';
 import { filter, debounce, debounceTime, distinctUntilKeyChanged, distinctUntilChanged } from 'rxjs/operators';
+import { ToasterService } from '../core/services/toaster.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,7 +23,9 @@ export class RegisterComponent implements OnInit, Validators {
   constructor(private form: FormBuilder,
      private router: Router,
     private route: ActivatedRoute,
-     private userService: UserService) {
+     private userService: UserService,
+    private tstrService : ToasterService
+    ) {
 
     // this.fullname = new FormControl('', [Validators.required, Validators.minLength(5)]);
     // this.email = new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]);
@@ -98,15 +101,17 @@ export class RegisterComponent implements OnInit, Validators {
     // console.log() 
     if (inputted.fullname.valid && inputted.email.valid && inputted.password.valid && 
       inputted.cPassword.valid && inputted.number.valid
-    && inputted.currentLocation.valid) {
+      && inputted.currentLocation.valid) {
         const userCredentials = this.myForm.value;
         console.log(userCredentials);
-      this.userService.attemptSignup(this.authType, userCredentials).subscribe(data =>{
-        this.router.navigate(['/login']);
-
-        console.log(data);
-      })
+        this.userService.attemptSignup(this.authType, userCredentials).subscribe(data =>{
+          this.tstrService.successToast('Signup Success', 'Now verify your Account');
+          this.router.navigate(['/login']);
+          console.log(data);
+        })
+    }else{
+      this.tstrService.errorToast('Error in Field', 'Please Provide Proper Field Data');
     }
-
+    
   }
 }

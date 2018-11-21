@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-// import { FileuploadService } from '../../core/services/fileupload.service';
+import { FileuploadService } from '../../core/services/fileupload.service';
 
 @Component({
   selector: 'app-jobseekerinfo',
@@ -11,7 +11,7 @@ export class JobseekerinfoComponent implements OnInit {
 
   myForm: FormGroup;
   constructor(private fb: FormBuilder,
-  // private uploadService: FileuploadService
+  private uploadService: FileuploadService
 ) { }
   selectedFiles: any;
   ngOnInit() {
@@ -35,7 +35,7 @@ export class JobseekerinfoComponent implements OnInit {
   }
 
   onFormSubmit(){
-    // this.uploadService.uploadfile(this.selectedFiles.item(0));
+    this.uploadService.uploadfile(this.selectedFiles.item(0));
   }
 
 }

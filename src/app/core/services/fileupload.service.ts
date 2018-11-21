@@ -7,8 +7,8 @@ export class FileuploadService {
 
   bucket = "znyak";
   s3Client = new AWS.S3({
-    accessKeyId: "AKIAJJ6C6PP4Z2MBVOZQ",
-    secretAccessKey: "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"
+    accessKeyId: "AKIAJ3HELLVCC27A3X2A",
+    secretAccessKey: "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"
   });
 
   constructor() { }

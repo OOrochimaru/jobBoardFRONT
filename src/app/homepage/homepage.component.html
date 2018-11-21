@@ -1,0 +1,79 @@
+<section id="intro" class="section-find">
+  <div class="search-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Find the job that fits your life</h1>
+          <br>
+          <h2>More than
+            <strong>12</strong> jobs are waiting to Kickstart your career!</h2>
+          <div class="content">
+            <form [formGroup]="myForm" (ngSubmit)="searchJob()">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <input class="form-control" formControlName="jobTitle" type="text" placeholder="job title / keywords / company name">
+                    <i class="ti-time"></i>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                  <div class="form-group">
+                    <input class="form-control" formControlName="location" type="text" placeholder="city / province / zip code">
+                    <i class="ti-location-pin"></i>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                  <button type="submit" class="btn btn-search-icon" value="button">
+                    <i class="ti-search"></i>Search
+                  </button>
+                </div>
+              </div>
+            </form>
+            <!-- <div class="col-md-6 col-sm-6" *ngIf="f.name.errors && (f.name.dirty || f.name.touched || f.name.pristine)">
+              <p *ngIf="f.name.errors.required" class="alert-danger">Email is required</p>
+            </div> -->
+          </div>
+          <div class="popular-jobs">
+            <b>Popular Keywords: </b>
+            <a href="#">Web Design</a>
+            <a href="#">Manager</a>
+            <a href="#">Programming</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="find-job section">
+  <div class="container">
+    <h2 class="section-title">Featured Jobs</h2>
+    <div class="row">
+
+
+
+      <div class="col-lg-12" *ngFor="let job of jobs">
+        <div class="job-list col-lg-12" style="background-color:#EFD9D4">
+          <div class="thumb">
+            <a href="job-details.html">
+              <img src="assets/img/jobs/img-1.jpg" alt="">
+            </a>
+          </div>
+          <app-job-list [j]="job"></app-job-list>
+
+        </div>
+
+
+
+      </div>
+        
+          <p-paginator *ngIf='paginateOptions' [rows]="5" [totalRecords]="totalJobs" (onPageChange)="paginate($event)" pageLinkSize="5"></p-paginator>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</section>

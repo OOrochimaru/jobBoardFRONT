@@ -1,0 +1,81 @@
+<div class="spacing">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <section>
+            <h1 class="entry-title">
+              <span>User Info</span>
+            </h1>
+            <hr>
+            <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()" novalidate class="form-horizontal" enctype="multipart/form-data">
+              <div class="form-group">
+                  <label class="control-label col-sm-3">Email ID
+                    <span class="text-danger">*</span>
+                  </label>
+                  <div class="col-md-8 col-sm-9">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter your Email ID" value="" required>
+                    <small> Your Email Id is being used for ensuring the security of your account.
+    
+                    </small>
+                  </div>
+                  <div class="col-md-8 col-sm-9 col-sm-offset-3" *ngIf="f.email.errors && (f.email.dirty || f.email.touched)">
+                    <p *ngIf="f.email.errors.required" class="alert-danger">Email is required</p>
+                    <p *ngIf="f.email.errors.pattern" class="alert-danger">Email has invalid pattern</p>
+                  </div>
+                  <div class="col-md-8 col-sm-9 col-sm-offset-3">
+                    <!-- <p *ngIf="email === true" class="alert-danger">Email already exists in the database</p> -->
+                  </div>
+                </div>
+              <div class="form-group">
+                <label class="control-label col-sm-3">Qualification
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8 col-sm-9">
+                  <input type="text" class="form-control" formControlName="qualification" id="mem_name" placeholder="Enter your Name here" value="">
+                </div>
+                <div class="col-md-8 col-sm-9 col-sm-offset-3">
+                  <small *ngIf="f.qualification.errors && (f.qualification.dirty || f.qualification.touched)" class="alert-danger">
+                    *Name of at least 5 characters is required</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-3">Experience
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8 col-sm-9">
+                  <input type="text" class="form-control" formControlName="experience" placeholder="Enter your Experience ID" value="" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-3">Your Skills
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8 col-sm-9">
+                  <input type="text" class="form-control" formControlName="skills" placeholder="Choose Skills">
+                </div>
+                <div class="col-md-8 col-sm-9 col-sm-offset-3" *ngIf="f.skills.errors && (f.skills.dirty || f.skills.touched)">
+                  <p *ngIf="f.skills.errors.required" class="alert-danger">skills is required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-3">Your Resume
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8 col-sm-9">
+                  <input type="file" (change)="selectFile($event)">
+                </div>
+                <div class="col-md-8 col-sm-9 col-sm-offset-3" *ngIf="f.resume.errors && (f.resume.dirty || f.resume.touched)">
+                  <p *ngIf="f.resume.errors.required" class="alert-danger">resume is required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-10">
+                  <input name="Submit" [disabled]="!selectedFiles" type="submit" value="Sign Up" class="btn btn-primary">
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>

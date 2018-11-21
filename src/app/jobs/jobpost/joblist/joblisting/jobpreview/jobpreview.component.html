@@ -1,0 +1,213 @@
+<div id="pjWrapper" class="wrapper">
+	<div class="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<div class="cms-e-section panel-section">
+						<div class="panel">
+							<div class="panel-heading">
+								<div class="panel-title">
+									<span class="wc-editable" data-pk="front_job_summary" data-type="text">Job summary</span>
+								</div>
+							</div>
+							<div class="panel-body">
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="front_post_on" data-type="text">Posted on</span>
+									</span>
+									<br>
+									<strong>{{job?.publishedDate}}</strong>
+								</p>
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="ws_category" data-type="text">Category</span>
+									</span>
+									<br>
+									<strong>Logistics / Transportation Jobs</strong>
+								</p>
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="ws_job_type" data-type="text">Job type</span>
+									</span>
+									<br>
+									<strong>{{job?.jobType}}</strong>
+								</p>
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="plugin_jobportal_filter_types_ARRAY_career" data-type="text">Career level</span>
+									</span>
+									<br>
+									<strong>Entry Level</strong>
+								</p>
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="plugin_jobportal_filter_types_ARRAY_education" data-type="text">Education Levels</span>
+									</span>
+									<br>
+									<strong>Some College Coursework Completed</strong>
+								</p>
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="plugin_jobportal_filter_types_ARRAY_experience" data-type="text">Years of Experience</span>
+									</span>
+									<br>
+									<strong></strong>
+								</p>
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="front_label_salary" data-type="text">Salary</span>
+									</span>
+									<br>
+									<strong>$34 000.00</strong>
+								</p>
+								<p>
+									<span>
+										<span class="wc-editable" data-pk="ws_ref_id" data-type="text">Ref ID</span>
+									</span>
+
+									<br>
+
+									<strong>ZT1492521491</strong>
+								</p>
+								<!-- <p>
+									<a href="login.html" class="btn btn-primary btn-apply">
+										<span class="wc-editable" data-pk="front_button_apply" data-type="text">Apply</span>
+									</a>
+								</p> -->
+							</div>
+						</div>
+					</div>
+					<div class="company-info cms-e-section">
+						<div class="company-image">
+							<img src="http://vevs.website/ryambudha/app/web/upload/medium/c23914fd7e324c4aeb91f6c897155d61.jpg" alt="">
+						</div>
+						<div class="company-description">
+							<p>
+								<span>
+									<span class="wc-editable" data-pk="front_label_contact_name" data-type="text">Contact Name</span>
+								</span>
+								<br>
+								<strong>{{publisher?.username}}</strong>
+							</p>
+							<p>
+								<span>
+									<span class="wc-editable" data-pk="front_label_phone" data-type="text">Phone</span>
+								</span>
+								<br>
+								<strong>{{publisher?.number}}</strong>
+							</p>
+							<p>
+								<span>
+									<span class="wc-editable" data-pk="front_label_email" data-type="text">Enter your email address</span>
+								</span>
+								<br>
+								<strong>
+									<a>{{publisher?.email}}</a>
+								</strong>
+							</p>
+							<p>
+								<span>
+									<span class="wc-editable" data-pk="front_label_website" data-type="text">Website</span>
+								</span>
+								<br>
+								<strong>
+									<a href="http://www.azteklogistics.co.uk/" target="_blank">http://www.azteklogistics.co.uk/</a>
+								</strong>
+							</p>
+							<p>
+								<a href="aztek-logistics-company-18.html" class="btn btn-secondary">
+									<span class="wc-editable" data-pk="ws_company_details" data-type="text">Company details</span>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<div class="post cms-e-section">
+						<div class="resume-head">
+
+							<h1 *ngIf="job">{{job?.jobTitle}}</h1>
+
+							<p>
+								<em>
+									<span class="wc-editable" data-pk="front_company" data-type="text">Company:</span>
+									<strong>{{publisher?.company}}</strong>
+								</em>
+								<em>
+									<span class="wc-editable" data-pk="front_location" data-type="text">Location</span>:
+									<strong>{{job?.location}}</strong>
+								</em>
+							</p>
+						</div>
+
+						<h2>
+							<span class="wc-editable" data-pk="front_label_job_description" data-type="text">Job description</span>
+						</h2>
+
+						<div class="paragraph">
+							<p>{{job?.description}}
+								<br />
+								<br />
+								<strong>Responsibilities:</strong>
+								{{job?.description}}
+								<br />
+								<strong>Qualifications:</strong>
+								<br />
+								{{job?.qualification}}
+								<br /></p>
+						</div>
+					</div>
+
+					<div class="post-actions cms-e-section">
+						<button (click)="applyForJob()"   class="btn btn-primary btn-lg btn-apply" [disabled]="applied || currentLoggedInUser.role === 'employer' ">
+							<span  class="wc-editable" data-pk="front_button_apply" data-type="text">Apply</span>
+						</button>
+						<p *ngIf="applied ||  currentLoggedInUser.role !== 'employer'">You have already applied for this job</p>
+						<div class="share-actions">
+							<div class="socials-share">
+								<ul>
+									<li>
+										<span>
+											<span class="wc-editable" data-pk="ws_share" data-type="text">Share</span>:</span>
+									</li>
+
+									<li>
+										<a target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fvevs.website%2Fryambudha%2Fdelivery-driver-counter-trainee-53.html">
+											<img src="http://vevs.website/ryambudha/app/web/upload/medium/social-facebook-176-1538486736.png" alt="" title="" data-id="178">
+										</a>
+									</li>
+
+									<li>
+										<a target="_blank" href="https://twitter.com/intent/tweet?source=webclient&text=http%3A%2F%2Fvevs.website%2Fryambudha%2Fdelivery-driver-counter-trainee-53.html">
+											<img src="http://vevs.website/ryambudha/app/web/upload/medium/social-twitter-179-1538486736.png" alt="" title="" data-id="181">
+										</a>
+									</li>
+
+									<li>
+										<a target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http%3A%2F%2Fvevs.website%2Fryambudha%2Fdelivery-driver-counter-trainee-53.html">
+											<img src="http://vevs.website/ryambudha/app/web/upload/medium/social-googleplus-177-1538486736.png" alt="" title="" data-id="179">
+										</a>
+									</li>
+
+									<li>
+										<a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fvevs.website%2Fryambudha%2Fdelivery-driver-counter-trainee-53.html">
+											<img src="http://vevs.website/ryambudha/app/web/upload/medium/social-linkedin-178-1538486736.png" alt="" title="" data-id="180">
+										</a>
+									</li>
+
+									<li>
+										<a href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#122;&#116;&#101;&#107;&#107;&#115;&#46;&#99;&#111;&#109;?subject=Job title&body=http://vevs.website/ryambudha/delivery-driver-counter-trainee-53.html">
+											<img src="http://vevs.website/ryambudha/app/web/upload/medium/social-email-175-1538486735.png" alt="" title="" data-id="177">
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

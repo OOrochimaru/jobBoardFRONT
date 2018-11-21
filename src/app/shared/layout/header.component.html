@@ -1,0 +1,219 @@
+<div class="header">
+  <!-- Start intro section -->
+  <section id="intro" class="section-intro">
+    <div class="logo-menu">
+      <nav class="navbar navbar-default" role="navigation" data-spy="affix" data-offset-top="50">
+        <!-- user not logged in header -->
+        <div class="container" *appShowAuthed='false'>
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="index.html">
+              <img src="assets/img/logo.png" alt="">
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <!-- Start Navigation List -->
+            <ul class="nav navbar-nav">
+              <li>
+                <a class="active" routerLink="/index" routerLinkActive="active">
+                  Home
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/job/jobindex" routerLinkActive='active'>
+                  Jobs
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/aboutus" routerLinkActive='active'>
+                  About Us
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/contactus" routerLinkActive='active'>
+                  Contact Us
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right float-right">
+              <li class="left">
+                <a routerLink="job/postjob" (click)="checkUserAuthentication()">
+                  <i class="ti-pencil-alt"></i> Post A Job</a>
+              </li>
+              <li class="right">
+                <!-- <a [routerLink]="['/login']" routerLinkActive='active'> -->
+                <a routerLink="/login" routerLinkActive='active'>
+                  <i class="ti-lock"></i> Log In</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- //user logged in  header-->
+        <div class="container" *appShowAuthed='true'>
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="index.html">
+              <img src="assets/img/logo.png" alt="">
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <!-- Start Navigation List -->
+            <ul class="nav navbar-nav">
+              <li>
+                <a class="active" routerLink='/index'>
+                  Home
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/job/jobindex">
+                  Jobs
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li *ngIf="employer">
+                <a routerLink="/resumes">
+                  Resumes
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <!-- <ul class="dropdown">
+                  <li>
+                    <a>
+                      List All
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Search Resumes
+                    </a>
+                  </li>
+                </ul> -->
+              </li>
+              <li>
+                <a routerLink="/aboutus">
+                  About Us
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/contactus">
+                  Contact Us
+                  <i class="fa fa-angle"></i>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right float-right">
+               <li *ngIf="employer">
+                   <a [routerLink]="['/job', username,'postjob']">
+                  <i class="ti-pencil-alt"></i>Post A Job </a>
+               </li>
+              <li class="left">
+                      <a href="javascript:void(0)" class="dropdown-toggle header-user" data-toggle="dropdown">
+                        <div class="sidebar-user-material-content user-img text-center">
+                          <img [src]="imagePath" class="img-circle img-responsive pull-left" alt="">
+                          <!-- <h6 class="pull-left">{{user.name}}</h6> -->
+                          <span class="userName">{{username}}</span>
+                          <i class="icon-chevron-down"></i>
+                        </div>
+                      </a>
+            
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <a [routerLink]="['/user', username, 'details' ]">
+                            <i class="icon-users2"></i> Profile</a>
+                        </li>
+                        <li *ngIf="employer">
+                          <a [routerLink]="['/user', username, 'billing']">
+                            <i class="icon-users2"></i>Billing</a>
+                        </li>
+                        <li *ngIf="employer">
+                          <a [routerLink]="['job', username, 'myjobs']">
+                            <i class="icon-key"></i>My Jobs</a>
+                        </li>
+                        <li *ngIf="!employer">
+                          <a [routerLink]="['job', username, 'myjobs']">
+                            <i class="icon-key"></i>My Applied Jobs</a>
+                        </li>
+                        <li>
+                          <a routerLink="/admin/changePassword">
+                            <i class="icon-key"></i>Shortlisted</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="logout()">
+                              <i class="icon-key"></i>Logout</a>
+                          </li>
+                        <!-- <li>
+                          <a href="javascript:void(0)" (click)="logout();">
+                            <i class="icon-paper-plane"></i> Sign Out</a>
+                        </li> -->
+                      </ul>
+              
+              </li>
+              <!-- <li class="left">
+                  <a (click)="logout()" routerLink="">
+                    <i class="ti-pencil-alt"></i> Logout</a>
+                </li> -->
+              <!-- <li >
+                <a routerLink="/profile">
+                  Profile
+                  <i class="fa fa-angle-down" style="margin:0px 0px; "></i>
+                </a>
+                <ul class="dropdown">
+                  <li>
+                    <a routerLink="/profile">
+                      My Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/myjobs">
+                      My Jobs
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/shortlist">
+                      My Shortlist
+                    </a>
+                  </li>
+                  <li>
+                    <a href="search-resumes.html">
+                      $Payment
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/logout">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+
+       
+
+      </nav>
+    </div>
+    <!-- Header Section End -->
+  </section>
+  <!-- end intro section -->
+</div>

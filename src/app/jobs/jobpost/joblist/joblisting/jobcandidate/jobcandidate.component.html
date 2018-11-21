@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="main1" style="padding:10px 10px 10px 10px;">
+		<div *ngIf="alreadyAdded">
+			<p>You have already shortlisted this candidate</p>
+		</div>
+		<div *ngIf="jobApplicantsList.length === 0">
+			<p>There is no candidate for this job</p>
+		</div>
+
+		<div class="row" *ngFor="let applicant of jobApplicantsList">
+			<div class="col-md-12 main">
+				<div class="col-md-8">
+					<span>
+						<h2>{{applicant.username}}</h2>
+					</span>
+					<p>
+						<span class="texta">Email:</span>
+						<span class="textb">
+							<strong>{{applicant.email}}</strong>
+						</span>
+						<span class="texta"> Location:</span>
+						<span class="textb">
+							<strong>{{applicant.location}}</strong>
+						</span>
+					</p>
+
+				</div>
+
+				<div class="col-md-4" style="padding:10px;">
+
+
+					<div class="col-lg-3 col-md-4 my-jobs-actions">
+
+						<div class="btn-group" role="group" aria-label="...">
+							<a [routerLink]="['/user', applicant.username, 'details']" class="btn btn-secondary btn-sm">
+								<span class="glyphicon glyphicon-eye-open"></span>
+								<span>View</span>
+							</a>
+						</div>
+						<div class="btn-group" role="group" aria-label="..." (click)="shortListed(applicant.username)">
+							<a class="btn btn-secondary btn-sm">
+								<!-- [routerLink]="['/user', applicant.username, 'details']" -->
+								<span class="glyphicon glyphicon-eye-open"></span>
+								<span>ShortList</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

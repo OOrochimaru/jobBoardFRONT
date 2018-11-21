@@ -5,6 +5,7 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 import { JwtService } from './jwt.service';
 import { User } from '../models/user.model';
 import { Job } from '../models';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class JobService {
@@ -76,5 +77,8 @@ export class JobService {
   shortListACandidate(path: string, body){
     return this.apiService.post('index/'+path+'/shortListACandidate', {applicant: body});
   }
-
+  
+  getPaginationJobs(path: string, body ){
+    return this.apiService.post('index/'+path, body);
+  }
 }

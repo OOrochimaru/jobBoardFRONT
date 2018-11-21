@@ -12,6 +12,7 @@ import { UsersModule } from './users/users.module';
 // import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { HomepageModule } from './homepage/homepage.module';
+import {AccordionModule} from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { HomepageModule } from './homepage/homepage.module';
     CoreModule,
     HomepageModule,
     BrowserAnimationsModule,
+    AccordionModule,
+    
     // UsersModule
   ],
   providers: [],

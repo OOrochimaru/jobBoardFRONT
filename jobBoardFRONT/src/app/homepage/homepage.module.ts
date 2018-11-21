@@ -5,8 +5,9 @@ import { HomepageRouterModule } from './homepage.routing';
 import { HomepageComponent } from './homepage.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeAuthResolver } from './home-auth-resolver.service';
-import { FormGroup, FormControl } from '@angular/forms';
 import { JobModule } from '../jobs/job.module';
+import { PaginatorModule } from 'primeng/paginator';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -15,7 +16,9 @@ import { JobModule } from '../jobs/job.module';
     CommonModule,
     HomepageRouterModule,
     SharedModule,
-    JobModule
+    JobModule,
+    PaginatorModule,
+    ReactiveFormsModule
   ],
   providers: [HomeAuthResolver],
   exports:[
